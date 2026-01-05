@@ -3,38 +3,50 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// int	input_check(int argc, char **argv)
-// {
-// 	int i;
-// 	int j;
+int	input_check(int argc, char **split_input)
+{
+	int i;
+	int j;
 
-// 	i = 1;
-// 	if (argc < 2)
-// 	{
-// 		write(1, "Error\n", 7);
-// 		return (0);
-// 	}
-// 	while (argv[i])
-// 	{
-// 		j = 0;
-// 		while (argv[i][j])
-// 		{
-// 			if (ft_isdigit(argv[i][j]) || argv[i][j] == ' ')
-// 				j++;
-// 			else
-// 			{
-// 				write(1, "Error\n", 7);
-// 				return (0);
-// 			}
-// 		}
-// 		i++;
-// 	}
-// 	return(1);
-// }
-// int valid_int_check(int argc, char **argv)
-// {
+	i = 1;
+	if (argc < 2)
+	{
+		write(1, "Error\n", 7);
+		return (0);
+	}
+	while (split_input[i])
+	{
+		j = 0;
+		while (split_input[i][j])
+		{
+			if ((ft_isdigit(split_input[i][j]) && (split_input[i][j + 1] == '\0' || ft_isdigit(split_input[i][j + 1]))) || ((split_input[i][j] == '+'
+			|| split_input[i][j] == '-') && ft_isdigit(split_input[i][j + 1])))
+				j++;
+			else
+			{
+				write(1, "Error\n", 7);
+				return (0);
+			}
+		}
+		i++;
+	}
+	return(1);
+}
 
-// }
+
+static void	free_memory(char **badmem)
+{
+	int	i;
+
+	i = 0;
+	while (badmem[i])
+	{
+		free(badmem[i]);
+		i++;
+	}
+	free(badmem);
+	return ;
+}
 
 char	*join_input(char **strings, int nb_of_strings)
 {
@@ -74,75 +86,73 @@ int	main(int argc, char **argv)
 	// split them all into an array
 	split_input = ft_split(input, ' ');
 	free(input);
-	// check each string to see if it is a valid input
+	if (!input_check(argc, split_input))
+	{
+		free_memory(split_input);
+		return (0);
+	}
+	printf("Made it through input check func\n");
+	//check each string to see if it is a valid input
 	i = 0;
 	while (split_input[i])
 	{
-		if ((split_input[i][0] == '+' || split_input[i][0] == '-') && !ft_isdigit(split_input[i][1]))
-		{
-			i = 0;
-			while (split_input[i])
-				{
-					free(split_input[i]);
-					i++;
-				}
-			free(split_input);
-			return (0);
-		}
-		if (ft_strlen(split_input[i]) > ft_strlen("-2147483648"))
-		{
-			//write(2, "Error\n", 7);
-			printf("i value: %i.\nInvalid input: %s\n", i, split_input[i]);
-			i = 0;
-			while (split_input[i])
-				{
-					free(split_input[i]);
-					i++;
-				}
-			free(split_input);
-			return (0);
-		}
-		if (ft_strlen(split_input[i]) == ft_strlen("-2147483648") && !((split_input[i][0] == '+') || (split_input[i][0] == '-')))
-		{
-			//write(2, "Error\n", 7);
-			printf("banana i value: %i.\nInvalid input: %s\n", i, split_input[i]);
-			i = 0;
-			while (split_input[i])
-				{
-					free(split_input[i]);
-					i++;
-				}
-			free(split_input);
-			return (0);
-		}
-		if (split_input[i][0] == '+')
-		{
-			min_max_compare = ft_strncmp("+2147483647", split_input[i], 12);
-			if (min_max_compare < 0)
-			{
-				printf("i value: %i.\nInvalid input: %s\n", i, split_input[i]);
-				//write(2, "Error\n", 7);
-			}
-		}
-		if (split_input[i][0] == '-')
-		{
-			min_max_compare = ft_strncmp("-2147483648", split_input[i], 12);
-			if (min_max_compare < 0)
-			{
-				printf("i value: %i.\nInvalid input: %s\n", i, split_input[i]);
-				//write(2, "Error\n", 7);
-			}
-		}
-		printf("i value: %i\n", i);
+		printf("%s\n", split_input[i]);
 		i++;
 	}
-	i = 0;
-	while (split_input[i])
-	{
-		free(split_input[i]);
-		i++;
-	}
-	free(split_input);
+	// while (split_input[i])
+	// {
+	// 	if (ft_strlen(split_input[i]) == 1 && !ft_isdigit(split_input[i][0]))
+	// 	{
+	// 		write(2, "Error\n", 7);
+	// 		free_memory(split_input);
+	// 		return (0);
+	// 	}
+	// 	if ((split_input[i][0] == '+' || split_input[i][0] == '-') && !ft_isdigit(split_input[i][1]))
+	// 	{
+	// 		write(2, "Error\n", 7);
+	// 		free_memory(split_input);
+	// 		return (0);
+	// 	}
+	// 	if (ft_strlen(split_input[i]) > ft_strlen("-2147483648"))
+	// 	{
+	// 		write(2, "Error\n", 7);
+	// 		//printf("i value: %i.\nInvalid input: %s\n", i, split_input[i]);
+	// 		free_memory(split_input);
+	// 		return (0);
+	// 	}
+	// 	if (ft_strlen(split_input[i]) == ft_strlen("-2147483648") && !((split_input[i][0] == '+') || (split_input[i][0] == '-')))
+	// 	{
+	// 		write(2, "Error\n", 7);
+	// 		//printf("banana i value: %i.\nInvalid input: %s\n", i, split_input[i]);
+	// 		free_memory(split_input);
+	// 		return (0);
+	// 	}
+	// 	if (split_input[i][0] == '+')
+	// 	{
+	// 		min_max_compare = ft_strncmp("+2147483647", split_input[i], 12);
+	// 		if (min_max_compare < 0)
+	// 		{
+	// 			write(2, "Error\n", 7);
+	// 			//printf("i value: %i.\nInvalid input: %s\n", i, split_input[i]);
+	// 			free_memory(split_input);
+	// 			return (0);
+	// 		}
+	// 	}
+	// 	if (split_input[i][0] == '-')
+	// 	{
+	// 		min_max_compare = ft_strncmp("-2147483648", split_input[i], 12);
+	// 		if (min_max_compare < 0)
+	// 		{
+	// 			//write(2, "Error\n", 7);
+	// 			printf("i value: %i.\nInvalid input: %s\n", i, split_input[i]);
+	// 			free_memory(split_input);
+	// 			return (0);
+	// 		}
+	// 	}
+	// 	printf("i value: %i\n", i);
+	// 	i++;
+	// }
+	free_memory(split_input);
 	// if (atoi(argv[1]))
 	// 	printf("valid input of number %i\n", atoi(argv[1]));
 	// else
