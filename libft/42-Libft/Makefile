@@ -7,18 +7,19 @@ ft_tolower.c ft_toupper.c ft_split.c get_next_line_bonus.c
 BONUS_FILES = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c \
 ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-OBJDIR = obj
+OBJDIR = ../../obj
 OFILES = $(CFILES:%.c=$(OBJDIR)/%.o)
 BONUS_OFILES = $(BONUS_FILES:%.c=%.o)
 CFLAGS = -Wall -Werror -Wextra
 CC = cc
-NAME = libft.a
-NAME_BONUS = libft.a
+NAME = ../../libft.a
+NAME_BONUS = ../../libft.a
 
 all: $(NAME)
 
 directory:
-	mkdir -p $(OBJDIR)
+	if ! [ -d $(OBJDIR) ]; then mkdir -p $(OBJDIR);\
+	fi
 
 bonus:	$(OFILES) $(BONUS_OFILES)
 	ar rcs $(NAME) $(OFILES) $(BONUS_OFILES)

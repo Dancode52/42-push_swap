@@ -3,10 +3,10 @@ CFILES = ft_printf.c ft_printf_utils.c
 BONUS_FILES =
 
 OFILES = $(CFILES:%.c=$(OBJDIR)/%.o)
-OBJDIR = obj
+OBJDIR = ../obj
 CFLAGS = -Wall -Werror -Wextra
 CC = cc
-NAME = libftprintf.a
+NAME = ../../libftprintf.a
 
 all: $(NAME)
 
@@ -14,7 +14,8 @@ $(OBJDIR)/%.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $< -I libftprintf.h
 
 directory:
-	mkdir -p $(OBJDIR)
+	if ! [ -d $(OBJDIR) ]; then mkdir -p $(OBJDIR);\
+	fi
 
 clean:
 	rm -rf $(OFILES)

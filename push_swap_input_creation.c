@@ -14,13 +14,14 @@ char	*join_input(char **strings, int nb_of_strings)
 	while (i < nb_of_strings)
 	{
 		temp = ft_strjoin(strings[i], " ");
-		printf("Inside join_input: temp = %s\n", temp);
+		if (!temp)
+			return (NULL);
 		temp2 = ft_strjoin(res, temp);
-	//	printf("Inside join_input: temp2 = %s\n", temp2);
+		if (!temp2)
+			return (NULL);
 		if (res)
 			free(res);
 		res = ft_strdup(temp2);
-		printf("inside join_input: res = %s\n", res);
 		free(temp);
 		free(temp2);
 		i++;
@@ -40,11 +41,11 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 	while (i < nb_of_nbs)
 	{
 		digit_array[i] = ft_atoi(split_input[i]);
-		printf("Made digit %i from string %s\n", digit_array[i], split_input[i]);
 		i++;
 	}
 	return (digit_array);
 }
+
 int *input_creation(int argc, char **argv)
 {
 	char	*input;
@@ -60,7 +61,14 @@ int *input_creation(int argc, char **argv)
 		return (0);
 	free(input);
 	nb_of_nbs = input_check(split_input);
+	if (nb_of_nbs == 0)
+	{
+		free_memory(split_input);
+		return (0);
+	}
 	digit_array = str_array_to_int_array(nb_of_nbs, split_input);
 	free_memory(split_input);
+	if (!dupe_check(digit_array, nb_of_nbs) || check_order(digit_array, nb_of_nbs))
+		return (0);
 	return (digit_array);
 }

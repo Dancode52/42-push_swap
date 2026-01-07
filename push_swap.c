@@ -7,22 +7,14 @@
 int	main(int argc, char **argv)
 {
 	int *digit_array;
-	int i;
-	int len;
 
 	digit_array = input_creation(argc, argv);
-
-	i = 0;
-	len = sizeof(digit_array);
-	printf("Length of created array: %i\n", len);
-	while (digit_array[i])
-	{
-		printf("Digit %i: %i\n", i, digit_array[i]);
-		i++;
-	}
+	if (!digit_array)
+		return (0);
+	printf("Mundo PUSHswap PUSHswap PUSHswap\n");
 	free(digit_array);
 	return (0);
-
+}
 // old code
 
 	// input = join_input(argv, argc);
@@ -125,4 +117,3 @@ int	main(int argc, char **argv)
 	// printf("%s\n", test);
 	// free(test);
 	// return (0);
-}
