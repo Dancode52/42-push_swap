@@ -46,12 +46,33 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 	return (digit_array);
 }
 
-int *input_creation(int argc, char **argv)
+myStack *create_stack_a(int *digit_array, int nb_of_nbs)
+{
+	int i;
+	myStack *head;
+	myStack *stacks;
+
+	i = 0;
+	head = ft_pslstnew(digit_array[i]);
+	i++;
+	while (i < nb_of_nbs)
+	{
+		stacks = ft_pslstnew(digit_array[i]);
+		ft_pslstadd_back(&head, stacks);
+		i++;
+	}
+	free(digit_array);
+	return (head);
+
+}
+
+myStack *input_creation(int argc, char **argv)
 {
 	char	*input;
 	char	**split_input;
 	int		nb_of_nbs;
 	int		*digit_array;
+	myStack	*stack;
 
 	if (argc < 2)
 		return (0);
@@ -70,5 +91,7 @@ int *input_creation(int argc, char **argv)
 	free_memory(split_input);
 	if (!dupe_check(digit_array, nb_of_nbs) || check_order(digit_array, nb_of_nbs))
 		return (0);
-	return (digit_array);
+	stack = create_stack_a(digit_array, nb_of_nbs);
+	return (stack);
 }
+

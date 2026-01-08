@@ -16,3 +16,4 @@ void	free_memory(char **badmem)
 	free(badmem);
 	return ;
 }
+
