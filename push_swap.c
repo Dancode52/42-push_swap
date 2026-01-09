@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "push_swap.h"
 
-void print_list(myStack *list)
+static void print_list(myStack *list)
 {
 	while (list)
 	{
@@ -20,6 +20,12 @@ int	main(int argc, char **argv)
 	StackA = input_creation(argc, argv);
 	if (!StackA)
 		return (0);
+	print_list(StackA);
+	write(1, "Now Swap!\n", 11);
+	swap_a(&StackA);
+	print_list(StackA);
+	write(1, "Now Rotate!\n", 13);
+	rotate_a(&StackA);
 	print_list(StackA);
 	test_clear(&StackA);
 	printf("Mundo PUSHswap PUSHswap PUSHswap\n");

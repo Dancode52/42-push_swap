@@ -1,6 +1,7 @@
 #include "libft/Headers/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 #include "push_swap.h"
 
 int int_len_check(char **split_input, int i)

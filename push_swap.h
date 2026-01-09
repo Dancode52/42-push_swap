@@ -30,6 +30,9 @@ myStack	*ft_pslstnew(int number);
 int		ft_pslstsize(myStack *lst);
 void	test_clear(myStack **lst);
 
+void	swap_a(myStack **stack_a);
+void rotate_a(myStack **a);
+
 
 //int	ft_atoi_limit_check(const char *str, int *error);
 
