@@ -16,8 +16,10 @@ static void print_list(myStack *list)
 int	main(int argc, char **argv)
 {
 	myStack *StackA;
+	myStack *StackB;
 
 	StackA = input_creation(argc, argv);
+	StackB = NULL;
 	if (!StackA)
 		return (0);
 	print_list(StackA);
@@ -26,6 +28,11 @@ int	main(int argc, char **argv)
 	print_list(StackA);
 	write(1, "Now Rotate!\n", 13);
 	rotate_a(&StackA);
+	print_list(StackA);
+	write(1, "Now Reverse Rotate!\n", 21);
+	r_rotate_a(&StackA);
+	print_list(StackA);
+	rr_rotate(&StackA);
 	print_list(StackA);
 	test_clear(&StackA);
 	printf("Mundo PUSHswap PUSHswap PUSHswap\n");
