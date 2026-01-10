@@ -32,9 +32,15 @@ int	main(int argc, char **argv)
 	write(1, "Now Reverse Rotate!\n", 21);
 	r_rotate_a(&StackA);
 	print_list(StackA);
-	rr_rotate(&StackA);
+	printf("Shit gets broke here \n");
+	push_b(&StackB, &StackA);
+	printf("We print StackB now \n");
+	print_list(StackB);
+	//rr_rotate(&StackA);
+	printf("We print StackA now \n");
 	print_list(StackA);
 	test_clear(&StackA);
+	test_clear(&StackB);
 	printf("Mundo PUSHswap PUSHswap PUSHswap\n");
 	return (0);
 }
