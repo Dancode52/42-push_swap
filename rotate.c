@@ -22,7 +22,7 @@ void rotate_b(myStack **b)
 	write(2, "rb\n", 3);
 }
 
-void	r_rotate(myStack **a, myStack **b)
+void	rrotate(myStack **a, myStack **b)
 {
 	rotate_a(a);
 	rotate_b(b);

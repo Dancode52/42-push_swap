@@ -24,7 +24,7 @@ void	swaps(myStack **stack_a, myStack **stack_b)
 {
 	swap_a(stack_a);
 	swap_b(stack_b);
-	write(1, "ss\n", 3);
+	//write(1, "ss\n", 3);
 }
 
 
