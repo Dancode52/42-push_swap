@@ -40,7 +40,7 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 	i = 0;
 	while (i < nb_of_nbs)
 	{
-		digit_array[i] = ft_atoi(split_input[i]);
+		digit_array[i] = ft_atoi(split_input[i]); //try replacing this with our psatoi function.
 		i++;
 	}
 	free_memory(split_input);
@@ -94,27 +94,27 @@ myStack *input_creation(int argc, char **argv)
 	return (stack);
 }
 
-// int	ft_atoi_limit_check(const char *str, int *error)
-// {
+int	ft_atoi_limit_check(const char *str, int *error) //psatoi
+{
 
-// 	int	i;
-// 	int	nb;
-// 	int	s;
+	int	i;
+	int	nb;
+	int	s;
 
-// 	i = 0;
-// 	nb = 0;
-// 	s = 1;
-// 	if (str[i] == '-')
-// 		s = s * -1;
-// 	if (str[i] == '+' || str[i] == '-')
-// 		i++;
-// 	if (!(str[i] >= '0' && str[i] <= '9'))
-// 		return (0);
-// 	while (str[i] >= '0' && str[i] <= '9')
-// 	{
-// 		nb = nb * 10 + (str[i] - '0');
-// 		i++;
-// 	}
-// 	return (nb * s);
+	i = 0;
+	nb = 0;
+	s = 1;
+	if (str[i] == '-')
+		s = s * -1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!(str[i] >= '0' && str[i] <= '9'))
+		return (0);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
+	return (nb * s);
 
-// }
+}
