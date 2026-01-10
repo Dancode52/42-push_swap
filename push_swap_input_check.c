@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/10 17:34:35 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/10 17:53:57 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	input_check(char **split_input)
 				return (0);
 			}
 		}
-		if (!input_min_max_check(split_input, i)) //this check could be replaced by using psatoi in the array generation. leave this place for valid string check
-			return (0);
+		// if (!input_min_max_check(split_input, i)) //this check could be replaced by using psatoi in the array generation. leave this place for valid string check
+		// 	return (0);
 		i++;
 	}
 	return(i);
