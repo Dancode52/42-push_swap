@@ -34,10 +34,24 @@ myStack	*ft_pslstnew(int number);
 int		ft_pslstsize(myStack *lst);
 void	test_clear(myStack **lst);
 
+// ----------- PUSHING -----------------------
+
+void	push_a(myStack **a, myStack **b);
+void	push_b(myStack **b, myStack **a);
+
+// ----------- SWAPPING ----------------------
+
 void	swap_a(myStack **stack_a);
-void rotate_a(myStack **a);
-void r_rotate_a(myStack **a);
-void rr_rotate(myStack **a, myStack **b)
+void	swap_b(myStack **stack_b);
+void	swaps(myStack **stack_a, myStack **stack_b);
+
+void	rotate_a(myStack **a);
+void	rotate_b(myStack **b);
+void	rrotate(myStack **a, myStack **b);
+
+void	r_rotate_a(myStack **a);
+void	r_rotate_b(myStack **b);
+void	rr_rotate(myStack **a, myStack **b);
 
 
 //int	ft_atoi_limit_check(const char *str, int *error);
