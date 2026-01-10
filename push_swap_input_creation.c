@@ -43,6 +43,7 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 		digit_array[i] = ft_atoi(split_input[i]);
 		i++;
 	}
+	free_memory(split_input);
 	return (digit_array);
 }
 
@@ -74,8 +75,6 @@ myStack *input_creation(int argc, char **argv)
 	int		*digit_array;
 	myStack	*stack;
 
-	if (argc < 2)
-		return (0);
 	input = join_input(argv, argc);
 	split_input = ft_split(input, ' ');
 	if (!split_input)
@@ -88,10 +87,34 @@ myStack *input_creation(int argc, char **argv)
 		return (0);
 	}
 	digit_array = str_array_to_int_array(nb_of_nbs, split_input);
-	free_memory(split_input);
+	//free_memory(split_input);
 	if (!dupe_check(digit_array, nb_of_nbs) || check_order(digit_array, nb_of_nbs))
 		return (0);
 	stack = create_stack_a(digit_array, nb_of_nbs);
 	return (stack);
 }
 
+// int	ft_atoi_limit_check(const char *str, int *error)
+// {
+
+// 	int	i;
+// 	int	nb;
+// 	int	s;
+
+// 	i = 0;
+// 	nb = 0;
+// 	s = 1;
+// 	if (str[i] == '-')
+// 		s = s * -1;
+// 	if (str[i] == '+' || str[i] == '-')
+// 		i++;
+// 	if (!(str[i] >= '0' && str[i] <= '9'))
+// 		return (0);
+// 	while (str[i] >= '0' && str[i] <= '9')
+// 	{
+// 		nb = nb * 10 + (str[i] - '0');
+// 		i++;
+// 	}
+// 	return (nb * s);
+
+// }

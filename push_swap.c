@@ -18,6 +18,8 @@ int	main(int argc, char **argv)
 	myStack *StackA;
 	myStack *StackB;
 
+	if (argc < 2)
+		return (0);
 	StackA = input_creation(argc, argv);
 	StackB = NULL;
 	if (!StackA)
@@ -33,6 +35,9 @@ int	main(int argc, char **argv)
 	r_rotate_a(&StackA);
 	print_list(StackA);
 	printf("Shit gets broke here \n");
+	push_b(&StackB, &StackA);
+	push_b(&StackB, &StackA);
+	push_b(&StackB, &StackA);
 	push_b(&StackB, &StackA);
 	printf("We print StackB now \n");
 	print_list(StackB);
