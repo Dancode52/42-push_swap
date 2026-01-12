@@ -4,6 +4,8 @@ void rotate_a(myStack **a)
 {
 	myStack *temp1;
 
+	if (!a || !*a)
+		return ;
 	temp1 = (*a)->next;
 	ft_pslstadd_back(a, (*a));
 	(*a)->next = NULL;
@@ -15,6 +17,8 @@ void rotate_b(myStack **b)
 {
 	myStack *temp1;
 
+	if (!b || !*b)
+		return ;
 	temp1 = (*b)->next;
 	ft_pslstadd_back(b, (*b));
 	(*b)->next = NULL;

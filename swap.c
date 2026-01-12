@@ -4,6 +4,8 @@ void	swap_a(myStack **stack_a)
 {
 	int temp;
 
+	if (!stack_a || *stack_a || ft_pslstsize(*stack_a) <= 1)
+		return ;
 	temp = (*stack_a)->number;
 	(*stack_a)->number = (*stack_a)->next->number;
 	(*stack_a)->next->number = temp;
@@ -14,6 +16,8 @@ void	swap_b(myStack **stack_b)
 {
 	int temp;
 
+	if (!stack_b || !*stack_b || ft_pslstsize(*stack_b) <= 1)
+		return ;
 	temp = (*stack_b)->number;
 	(*stack_b)->number = (*stack_b)->next->number;
 	(*stack_b)->next->number = temp;

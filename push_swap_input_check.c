@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/10 17:53:57 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:49:11 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,11 @@ int dupe_check(int *digit_array, int nb_of_nbs)
 	int j;
 
 	i = 0;
+	if (!digit_array)
+	{
+		write(2, "Error\n", 7);
+		return (0);
+	}
 	while (i < nb_of_nbs)
 	{
 		j = i + 1;
@@ -75,7 +80,7 @@ int dupe_check(int *digit_array, int nb_of_nbs)
 		{
 			if (digit_array[i] == digit_array[j])
 			{
-				write(1, "Error Duplicate Entry\n", 23);
+				write(2, "Error\n", 7);
 				return (0);
 			}
 			j++;
@@ -91,6 +96,11 @@ int check_order(int *digit_array, int nb_of_nbs)
 	int j;
 
 	i = 0;
+	if (!digit_array)
+	{
+		write(2, "Error\n", 7);
+		return (0);
+	}
 	while (i < nb_of_nbs)
 	{
 		j = i + 1;

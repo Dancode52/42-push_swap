@@ -6,6 +6,8 @@ void r_rotate_a(myStack **a)
 	myStack *last;
 	myStack *beforelast;
 
+	if (!a || !*a)
+		return ;
 	last = *a;
 	while (last->next != NULL)
 	{
@@ -22,6 +24,8 @@ void r_rotate_b(myStack **b)
 	myStack *last;
 	myStack *beforelast;
 
+	if (!b || !*b)
+		return ;
 	last = *b;
 	while (last->next != NULL)
 	{

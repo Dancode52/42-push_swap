@@ -7,7 +7,7 @@
 
 typedef struct my_ps_Stack {
 	int number;
-	int position;
+	double position;
 	struct my_ps_Stack *next;
 }	myStack;
 
@@ -53,8 +53,8 @@ void	r_rotate_a(myStack **a);
 void	r_rotate_b(myStack **b);
 void	rr_rotate(myStack **a, myStack **b);
 
+#endif
 
 //int	ft_atoi_limit_check(const char *str, int *error);
 
 
-#endif
