@@ -1,11 +1,12 @@
 #include "push_swap.h"
+#include <stdio.h>
 
 void push_a(myStack **a, myStack **b)
 {
 	myStack *temp;
 
-	// if (!*b)
-	// 	return ;
+	if (!*b)
+		return ;
 	temp = (*b)->next;
 	ft_pslstadd_front(a, *b);
 	*b = temp;
@@ -16,8 +17,8 @@ void push_b(myStack **b, myStack **a)
 {
 	myStack *temp;
 
-	// if (!*a)
-	// 	return ;
+	if (!*a)
+		return ;
 	temp = (*a)->next;
 	ft_pslstadd_front(b, *a);
 	*a = temp;

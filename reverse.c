@@ -41,5 +41,5 @@ void rr_rotate(myStack **a, myStack **b)
 {
 	r_rotate_a(a);
 	r_rotate_b(b);
-	write(1, "we also did rrb btw :) \n", 25);
+	write(1, "rrr\n", 4);
 }
