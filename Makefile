@@ -13,28 +13,30 @@ NAME = push_swap
 all: $(NAME)
 
 directory:
-	if ! [ -d $(OBJDIR) ]; then mkdir -p $(OBJDIR);\
+	@if ! [ -d $(OBJDIR) ]; then mkdir -p $(OBJDIR);\
 	fi
 
 clean:
-	rm -rf $(NAME)
-	rm -rf $(OFILES)
-	$(MAKE) clean -C libft/42-Libft
-	if [ -d $(OBJDIR) ]; then rmdir $(OBJDIR); \
+	@rm -rf $(NAME)
+	@rm -rf $(OFILES)
+	@$(MAKE) clean -C libft/42-Libft
+	@if [ -d $(OBJDIR) ]; then rmdir $(OBJDIR); \
 	fi
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) fclean -C libft/42-Libft
+	@echo "Look at us go! Taking a sledgehammer to your very delicate work!"
+	@rm -f $(NAME)
+	@$(MAKE) fclean -C libft/42-Libft
 
 re: fclean $(NAME)
 
 
 $(NAME): directory $(OFILES)
-	$(MAKE) bonus -C libft/42-Libft
-	$(CC) $(CFLAGS) $(CFILES) -o $(NAME) $(LIBFT)
+	@$(MAKE) bonus -C libft/42-Libft
+	@$(CC) $(CFLAGS) $(CFILES) -o $(NAME) $(LIBFT)
+	@echo "Look at us go! Making your project with our silly little techno-gremlin hands!"
 
 $(OBJDIR)/%.o : %.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 .PHONY:  re fclean clean bonus all
