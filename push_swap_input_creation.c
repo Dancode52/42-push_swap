@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include "push_swap.h"
 
-int	ft_atoi_limit_check(const char *str, int *error);
-
 char	*join_input(char **strings, int nb_of_strings)
 {
 	static char *res;
@@ -44,11 +42,9 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 	i = 0;
 	while (i < nb_of_nbs)
 	{
-		digit_array[i] = ft_atoi_limit_check(split_input[i], &error); //try replacing this with our psatoi function.
-		printf("ERROR IS EQUAL TO %i\n", error);
+		digit_array[i] = ft_atoi_limit_check(split_input[i], &error);
 		if (error == -2)
 		{
-			//write(1, "Error\n", 7);
 			free(digit_array);
 			return (0);
 		}
@@ -58,20 +54,20 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 	return (digit_array);
 }
 
-int find_largest(int *digit_array, int nb_of_nbs)
+int amibigger(int number, int nb_of_nbs, int *array)
 {
 	int i;
-	int largest;
+	int count;
 
 	i = 0;
-	largest = 0;
+	count = 0;
 	while (i < nb_of_nbs)
 	{
-		if (digit_array[i] > largest)
-			largest = digit_array[i];
+		if (number > array[i])
+			count++;
 		i++;
 	}
-	return (largest);
+	return (count);
 }
 
 myStack *create_stack_a(int *digit_array, int nb_of_nbs)
@@ -79,22 +75,20 @@ myStack *create_stack_a(int *digit_array, int nb_of_nbs)
 	int i;
 	myStack *head;
 	myStack *stacks;
-	int largest_num;
 
-	largest_num = find_largest(digit_array, nb_of_nbs);
 	i = 0;
 	if (!digit_array)
 	{
 		write(2, "Error\n", 7);
 		return (0);
 	}
-	head = ft_pslstnew(digit_array[i]);
-	head->position = ((double)head->number / largest_num) * 100;
+	head = ft_pslstnew(digit_array[i], amibigger(digit_array[i], nb_of_nbs, digit_array));
+	head->size = i;
 	i++;
 	while (i < nb_of_nbs)
 	{
-		stacks = ft_pslstnew(digit_array[i]);
-		stacks->position = ((double)stacks->number / largest_num) * 100 ;
+		stacks = ft_pslstnew(digit_array[i], amibigger(digit_array[i], nb_of_nbs, digit_array));
+		stacks->size = i;
 		ft_pslstadd_back(&head, stacks);
 		i++;
 	}
@@ -122,38 +116,11 @@ myStack *input_creation(int argc, char **argv)
 		return (0);
 	}
 	digit_array = str_array_to_int_array(nb_of_nbs, split_input);
-	//free_memory(split_input);
-	if (!dupe_check(digit_array, nb_of_nbs) || check_order(digit_array, nb_of_nbs)) // || digit_array == 0)
+	if (!dupe_check(digit_array, nb_of_nbs))
+	{
+		write(2, "Error\n", 7);
 		return (0);
+	}
 	stack = create_stack_a(digit_array, nb_of_nbs);
 	return (stack);
-}
-
-int	ft_atoi_limit_check(const char *str, int *error)
-{
-	int	i;
-	long	nb;
-	int	sign;
-
-	i = 0;
-	nb = 0;
-	sign = 1;
-	printf("in here error is %i \n", *error);
-	if (str[i] == '-')
-		sign = sign * -1;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		if ((nb > INT_MAX && sign == 1) || (nb * sign < INT_MIN))
-			break;
-		nb = nb * 10 + (str[i] - '0');
-		i++;
-	}
-	if ((nb > INT_MAX && sign == 1) || (nb * sign < INT_MIN))
-	{
-		nb = 0;
-		*error = -2;
-	}
-	return (nb * sign);
 }

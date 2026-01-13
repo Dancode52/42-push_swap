@@ -1,6 +1,6 @@
 CFILES = push_swap_input_check.c push_swap_input_creation.c push_swap_list_utils1.c push_swap_list_utils2.c \
-		push_swap_min_max_check.c push_swap_utils.c push_swap.c rotate.c \
-		swap.c reverse.c push.c
+		push_swap_utils.c push_swap.c rotate.c \
+		swap.c reverse.c push.c limit_atoi.c
 
 OBJDIR = ./obj
 OFILES = $(CFILES:%.c=$(OBJDIR)/%.o)

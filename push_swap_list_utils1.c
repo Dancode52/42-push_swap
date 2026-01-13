@@ -27,20 +27,6 @@ void	ft_pslstadd_front(myStack **lst, myStack *new)
 	*lst = new;
 }
 
-// void	ft_pslstclear(myStack **lst, void (*del)(void*))
-// {
-// 	myStack	*save;
-
-// 	if (!lst || !del)
-// 		return ;
-// 	while (*lst)
-// 	{
-// 		save = (*lst)->next;
-// 		ft_pslstdelone((*lst), del);
-// 		(*lst) = save;
-// 	}
-// }
-
 void	test_clear(myStack **lst)
 {
 	myStack	*save;
@@ -55,21 +41,3 @@ void	test_clear(myStack **lst)
 	}
 }
 
-// void	ft_pslstdelone(myStack *lst, void (*del)(void*))
-// {
-// 	if (!lst || !del)
-// 		return ;
-// 	del(lst->number);
-// 	free(lst);
-// }
-
-// void	ft_pslstiter(myStack *lst, void (*f)(void *))
-// {
-// 	if (!lst || !f)
-// 		return ;
-// 	while (lst)
-// 	{
-// 		f(lst->number);
-// 		lst = lst->next;
-// 	}
-// }

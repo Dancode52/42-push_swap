@@ -17,33 +17,7 @@ myStack	*ft_pslstlast(myStack *lst)
 	return (lst);
 }
 
-// myStack	*ft_pslstmap(myStack *lst, void *(*f)(void *), void (*del)(void *))
-// {
-// 	myStack	*newlst;
-// 	myStack	*newptr;
-// 	void	*i;
-
-// 	newlst = NULL;
-// 	if (!lst || !f || !del)
-// 		return (NULL);
-// 	while (lst)
-// 	{
-// 		i = f(lst->number);
-// 		newptr = ft_pslstnew(i);
-// 		if (newptr == NULL)
-// 		{
-// 			del(i);
-// 			ft_pslstclear(&newlst, del);
-// 			newlst = NULL;
-// 			return (NULL);
-// 		}
-// 		ft_pslstadd_back(&newlst, newptr);
-// 		lst = lst->next;
-// 	}
-// 	return (newlst);
-// }
-
-myStack	*ft_pslstnew(int number)
+myStack	*ft_pslstnew(int number, int index)
 {
 	myStack	*nodetest;
 
@@ -51,6 +25,7 @@ myStack	*ft_pslstnew(int number)
 	if (!nodetest)
 		return (NULL);
 	nodetest->number = number;
+	nodetest->position = index;
 	nodetest->next = NULL;
 	return (nodetest);
 }
@@ -58,14 +33,16 @@ myStack	*ft_pslstnew(int number)
 int	ft_pslstsize(myStack *lst)
 {
 	int	i;
+	myStack	*tmp;
 
 	i = 0;
-	if (!lst)
+	tmp = lst;
+	if (!tmp)
 		return (0);
-	while (lst)
+	while (tmp)
 	{
 		i++;
-		lst = lst->next;
+		tmp = tmp->next;
 	}
 	return (i);
 }

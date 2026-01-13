@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/12 10:49:11 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/13 15:10:18 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ int	input_check(char **split_input)
 				return (0);
 			}
 		}
-		// if (!input_min_max_check(split_input, i)) //this check could be replaced by using psatoi in the array generation. leave this place for valid string check
-		// 	return (0);
 		i++;
 	}
 	return(i);
@@ -90,28 +88,21 @@ int dupe_check(int *digit_array, int nb_of_nbs)
 	return (1);
 }
 
-int check_order(int *digit_array, int nb_of_nbs)
+int check_order(myStack *stack)
 {
-	int i;
-	int j;
+	myStack *temp;
 
-	i = 0;
-	if (!digit_array)
+	temp = stack;
+	if (!temp)
 	{
 		write(2, "Error\n", 7);
 		return (0);
 	}
-	while (i < nb_of_nbs)
+	while (temp->next)
 	{
-		j = i + 1;
-		while (j < nb_of_nbs)
-		{
-			if (digit_array[i] < digit_array[j])
-				j++;
-			else
-				return (0);
-		}
-		i++;
+		if (temp->number >= temp->next->number)
+			return (0);
+		temp = temp->next;
 	}
 	return (1);
 }

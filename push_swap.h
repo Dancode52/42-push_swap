@@ -7,7 +7,8 @@
 
 typedef struct my_ps_Stack {
 	int number;
-	double position;
+	int position;
+	int size;
 	struct my_ps_Stack *next;
 }	myStack;
 
@@ -19,18 +20,15 @@ void	free_memory(char **badmem);
 myStack *input_creation(int argc, char **argv);
 int input_min_max_check(char **split_input, int i);
 int dupe_check(int *digit_array, int nb_of_nbs);
-int check_order(int *digit_array, int nb_of_nbs);
+int check_order(myStack *stack);
+int	ft_atoi_limit_check(const char *str, int *error);
 
 //------------ LIST UTILITIES ----------------
 
 void	ft_pslstadd_back(myStack **lst, myStack *new);
 void	ft_pslstadd_front(myStack **lst, myStack *new);
-void	ft_pslstclear(myStack **lst, void (*del)(void*));
-void	ft_pslstdelone(myStack *lst, void (*del)(void*));
-void	ft_pslstiter(myStack *lst, void (*f)(void *));
 myStack	*ft_pslstlast(myStack *lst);
-myStack	*ft_pslstmap(myStack *lst, void *(*f)(void *), void (*del)(void *));
-myStack	*ft_pslstnew(int number);
+myStack	*ft_pslstnew(int number, int index);
 int		ft_pslstsize(myStack *lst);
 void	test_clear(myStack **lst);
 
@@ -55,6 +53,5 @@ void	rr_rotate(myStack **a, myStack **b);
 
 #endif
 
-//int	ft_atoi_limit_check(const char *str, int *error);
 
 
