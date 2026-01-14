@@ -27,17 +27,18 @@ void	ft_pslstadd_front(myStack **lst, myStack *new)
 	*lst = new;
 }
 
-void	test_clear(myStack **lst)
+void	free_stack_mem(myStack *lst)
 {
 	myStack	*save;
 
 	if (!lst)
 		return ;
-	while (*lst)
+	while (lst)
 	{
-		save = (*lst)->next;
-		free(*lst);
-		(*lst) = save;
+		save = lst->next;
+		free(lst);
+		lst = save;
 	}
+	free(lst);
 }
 

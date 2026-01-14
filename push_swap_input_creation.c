@@ -45,6 +45,7 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 		digit_array[i] = ft_atoi_limit_check(split_input[i], &error);
 		if (error == -2)
 		{
+			free_memory(split_input);
 			free(digit_array);
 			return (0);
 		}
@@ -79,7 +80,7 @@ myStack *create_stack_a(int *digit_array, int nb_of_nbs)
 	i = 0;
 	if (!digit_array)
 	{
-		write(2, "Error\n", 7);
+		//write(2, "Error\n", 7);
 		return (0);
 	}
 	head = ft_pslstnew(digit_array[i], amibigger(digit_array[i], nb_of_nbs, digit_array));
@@ -104,6 +105,8 @@ myStack *input_creation(int argc, char **argv)
 	int		*digit_array;
 	myStack	*stack;
 
+	if (argc < 2)
+		return (0);
 	input = join_input(argv, argc);
 	split_input = ft_split(input, ' ');
 	if (!split_input)
@@ -117,10 +120,7 @@ myStack *input_creation(int argc, char **argv)
 	}
 	digit_array = str_array_to_int_array(nb_of_nbs, split_input);
 	if (!dupe_check(digit_array, nb_of_nbs))
-	{
-		write(2, "Error\n", 7);
 		return (0);
-	}
 	stack = create_stack_a(digit_array, nb_of_nbs);
 	return (stack);
 }

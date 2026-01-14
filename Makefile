@@ -1,11 +1,11 @@
 CFILES = push_swap_input_check.c push_swap_input_creation.c push_swap_list_utils1.c push_swap_list_utils2.c \
 		push_swap_utils.c push_swap.c rotate.c \
-		swap.c reverse.c push.c limit_atoi.c
+		swap.c reverse.c push.c limit_atoi.c Small_Sorts.c
 
 OBJDIR = ./obj
 OFILES = $(CFILES:%.c=$(OBJDIR)/%.o)
 BONUS_OFILES = $(BONUS_FILES:%.c=%.o)
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 CC = cc
 LIBFT = libft.a
 NAME = push_swap

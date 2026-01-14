@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/13 15:10:18 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/14 09:56:55 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	input_check(char **split_input)
 				j++;
 			else
 			{
-				write(1, "Error\n", 7);
+				//write(1, "Error\n", 7);
 				return (0);
 			}
 		}
@@ -67,10 +67,7 @@ int dupe_check(int *digit_array, int nb_of_nbs)
 
 	i = 0;
 	if (!digit_array)
-	{
-		write(2, "Error\n", 7);
 		return (0);
-	}
 	while (i < nb_of_nbs)
 	{
 		j = i + 1;
@@ -78,7 +75,7 @@ int dupe_check(int *digit_array, int nb_of_nbs)
 		{
 			if (digit_array[i] == digit_array[j])
 			{
-				write(2, "Error\n", 7);
+				free(digit_array);
 				return (0);
 			}
 			j++;
@@ -94,13 +91,10 @@ int check_order(myStack *stack)
 
 	temp = stack;
 	if (!temp)
-	{
-		write(2, "Error\n", 7);
 		return (0);
-	}
 	while (temp->next)
 	{
-		if (temp->number >= temp->next->number)
+		if (temp->number > temp->next->number)
 			return (0);
 		temp = temp->next;
 	}
