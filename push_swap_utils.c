@@ -50,7 +50,7 @@ int	find_min_index(myStack *b)
 	return (min_index);
 }
 
-int find_max_position(myStack *stack, int max_index)
+int	find_max_position(myStack *stack, int max_index)
 {
 	int i;
 	myStack *temp;
@@ -67,7 +67,7 @@ int find_max_position(myStack *stack, int max_index)
 	return (i);
 }
 
-void split_stack(myStack **StackA, myStack **StackB, int count)
+void	split_stack(myStack **StackA, myStack **StackB, int count)
 {
 	int max_index;
 	int max_pos;

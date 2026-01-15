@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-static void revrotate(myStack **stack)
+static void	revrotate(myStack **stack)
 {
 	myStack *last;
 	myStack *beforelast;
@@ -18,7 +18,7 @@ static void revrotate(myStack **stack)
 	ft_pslstadd_front(stack, last);
 }
 
-void r_rotate_a(myStack **a)
+void	r_rotate_a(myStack **a)
 {
 	revrotate(a);
 	write(1, "rra\n", 4);
@@ -37,7 +37,7 @@ void r_rotate_a(myStack **a)
 	// ft_pslstadd_front(a, last);
 }
 
-void r_rotate_b(myStack **b)
+void	r_rotate_b(myStack **b)
 {
 	revrotate(b);
 	write(1, "rrb\n", 4);
@@ -56,7 +56,7 @@ void r_rotate_b(myStack **b)
 	// ft_pslstadd_front(b, last);
 }
 
-void rr_rotate(myStack **a, myStack **b)
+void	rr_rotate(myStack **a, myStack **b)
 {
 	revrotate(a);
 	revrotate(b);

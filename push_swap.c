@@ -4,21 +4,8 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-// void print_list(myStack *StackA);
 
-// void print_list(myStack *StackA)
-// {
-// 	myStack *temp;
-
-// 	temp = StackA;
-// 	while (temp)
-// 	{
-// 		printf("List Value: %i\n", temp->number);
-// 		temp = temp->next;
-// 	}
-// }
-
-int Small_Sorts(myStack **StackA, myStack **StackB)
+int	Small_Sorts(myStack **StackA, myStack **StackB)
 {
 	(void)StackB;
 	if (ft_pslstsize(*StackA) == 2)
@@ -44,7 +31,7 @@ int Small_Sorts(myStack **StackA, myStack **StackB)
 	return(0);
 }
 
-void Reintegration_Sort(myStack **StackA, myStack **StackB)
+void	Reintegration_Sort(myStack **StackA, myStack **StackB)
 {
 	int max_index;
 	int pos;
@@ -70,7 +57,7 @@ void Reintegration_Sort(myStack **StackA, myStack **StackB)
 }
 
 
-void K_Distribution_Sort(myStack **a, myStack **b)
+void	K_Distribution_Sort(myStack **a, myStack **b)
 {
     int n = ft_pslstsize(*a);
     int delta = ((n / 20) + 5);

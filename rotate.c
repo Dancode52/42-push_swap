@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static void rotate(myStack **stack)
+static void	rotate(myStack **stack)
 {
 	myStack *temp1;
 
@@ -13,7 +13,7 @@ static void rotate(myStack **stack)
 
 }
 
-void rotate_a(myStack **a)
+void	rotate_a(myStack **a)
 {
 	rotate(a);
 	write(1, "ra\n", 3);
@@ -27,7 +27,7 @@ void rotate_a(myStack **a)
 	// (*a) = temp1;
 }
 
-void rotate_b(myStack **b)
+void	rotate_b(myStack **b)
 {
 	rotate(b);
 	write(1, "rb\n", 3);

@@ -55,7 +55,7 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 	return (digit_array);
 }
 
-int amibigger(int number, int nb_of_nbs, int *array)
+int	amibigger(int number, int nb_of_nbs, int *array)
 {
 	int i;
 	int count;
@@ -71,7 +71,7 @@ int amibigger(int number, int nb_of_nbs, int *array)
 	return (count);
 }
 
-myStack *create_stack_a(int *digit_array, int nb_of_nbs)
+myStack	*create_stack_a(int *digit_array, int nb_of_nbs)
 {
 	int i;
 	myStack *head;
@@ -97,7 +97,7 @@ myStack *create_stack_a(int *digit_array, int nb_of_nbs)
 	return (head);
 }
 
-myStack *input_creation(int argc, char **argv)
+myStack	*input_creation(int argc, char **argv)
 {
 	char	*input;
 	char	**split_input;

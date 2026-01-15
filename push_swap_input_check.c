@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/14 09:56:55 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/16 00:26:18 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include "push_swap.h"
 
-static int only_digits(char **split_input, int i, int j)
+static int	only_digits(char **split_input, int i, int j)
 {
 
 	if ((ft_isdigit(split_input[i][j]) && (ft_isdigit(split_input[i][j + 1])
@@ -60,7 +60,7 @@ int	input_check(char **split_input)
 	return(i);
 }
 
-int dupe_check(int *digit_array, int nb_of_nbs)
+int	dupe_check(int *digit_array, int nb_of_nbs)
 {
 	int i;
 	int j;
@@ -85,7 +85,7 @@ int dupe_check(int *digit_array, int nb_of_nbs)
 	return (1);
 }
 
-int check_order(myStack *stack)
+int	check_order(myStack *stack)
 {
 	myStack *temp;
 

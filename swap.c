@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static void swap(myStack **stack)
+static void	swap(myStack **stack)
 {
 	int temp;
 

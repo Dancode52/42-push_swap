@@ -1,12 +1,12 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void sort_two(myStack **StackA)
+void	sort_two(myStack **StackA)
 {
 	swap_a(StackA);
 }
 
-void sort_three(myStack **StackA)
+void	sort_three(myStack **StackA)
 {
 	myStack **temp;
 	int max;
@@ -30,7 +30,7 @@ void sort_three(myStack **StackA)
 	}
 }
 
-void sort_four(myStack **StackA, myStack **StackB)
+void	sort_four(myStack **StackA, myStack **StackB)
 {
 	int size;
 	int max_index;
@@ -56,7 +56,7 @@ void sort_four(myStack **StackA, myStack **StackB)
 	rotate_a(StackA);
 }
 
-void sort_five(myStack **StackA, myStack **StackB)
+void	sort_five(myStack **StackA, myStack **StackB)
 {
 	int size;
 

@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void push_a(myStack **a, myStack **b)
+void	push_a(myStack **a, myStack **b)
 {
 	myStack *temp;
 
@@ -13,7 +13,7 @@ void push_a(myStack **a, myStack **b)
 	write(1, "pa\n", 3);
 }
 
-void push_b(myStack **b, myStack **a)
+void	push_b(myStack **b, myStack **a)
 {
 	myStack *temp;
 
