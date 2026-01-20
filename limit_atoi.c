@@ -3,9 +3,9 @@
 
 int	ft_atoi_limit_check(const char *str, int *error)
 {
-	int	i;
+	int		i;
 	long	nb;
-	int	sign;
+	int		sign;
 
 	i = 0;
 	nb = 0;
@@ -17,7 +17,7 @@ int	ft_atoi_limit_check(const char *str, int *error)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if ((nb > INT_MAX && sign == 1) || (nb * sign < INT_MIN))
-			break;
+			break ;
 		nb = nb * 10 + (str[i] - '0');
 		i++;
 	}

@@ -3,7 +3,7 @@
 
 void	push_a(myStack **a, myStack **b)
 {
-	myStack *temp;
+	myStack	*temp;
 
 	if (!*b)
 		return ;
@@ -15,7 +15,7 @@ void	push_a(myStack **a, myStack **b)
 
 void	push_b(myStack **b, myStack **a)
 {
-	myStack *temp;
+	myStack	*temp;
 
 	if (!*a)
 		return ;

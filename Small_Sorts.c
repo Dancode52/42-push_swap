@@ -8,9 +8,9 @@ void	sort_two(myStack **StackA)
 
 void	sort_three(myStack **StackA)
 {
-	myStack **temp;
-	int max;
-	int max_pos;
+	myStack	**temp;
+	int		max;
+	int		max_pos;
 
 	temp = StackA;
 	max = find_max_index((*temp));
@@ -32,9 +32,9 @@ void	sort_three(myStack **StackA)
 
 void	sort_four(myStack **StackA, myStack **StackB)
 {
-	int size;
-	int max_index;
-	int max_pos;
+	int	size;
+	int	max_index;
+	int	max_pos;
 
 	size = ft_pslstsize(*StackA);
 	max_index = find_max_index(*StackA);
@@ -58,7 +58,7 @@ void	sort_four(myStack **StackA, myStack **StackB)
 
 void	sort_five(myStack **StackA, myStack **StackB)
 {
-	int size;
+	int	size;
 
 	size = ft_pslstsize(*StackA);
 	split_stack(StackA, StackB, size);

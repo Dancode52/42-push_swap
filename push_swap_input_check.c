@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/16 00:26:18 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/16 02:42:56 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,18 @@
 
 static int	only_digits(char **split_input, int i, int j)
 {
-
 	if ((ft_isdigit(split_input[i][j]) && (ft_isdigit(split_input[i][j + 1])
 		|| split_input[i][j + 1] == '\0')))
 		return (1);
 	else
 		return (0);
-
 }
 
 static int	plus_minus_check(char **split_input, int i, int j)
 {
 	if (((split_input[i][j] == '+' || split_input[i][j] == '-')
 		&& split_input[i][j + 1] != '\0'
-		&& ft_isdigit(split_input[i][j + 1] )))
+		&& ft_isdigit(split_input[i][j + 1])))
 		return (1);
 	else
 		return (0);
@@ -38,8 +36,8 @@ static int	plus_minus_check(char **split_input, int i, int j)
 
 int	input_check(char **split_input)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (split_input[i])
@@ -47,23 +45,21 @@ int	input_check(char **split_input)
 		j = 0;
 		while (split_input[i][j])
 		{
-			if (only_digits(split_input, i, j) || plus_minus_check(split_input, i, j))
+			if (only_digits(split_input, i, j)
+				|| plus_minus_check(split_input, i, j))
 				j++;
 			else
-			{
-				//write(1, "Error\n", 7);
 				return (0);
-			}
 		}
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 int	dupe_check(int *digit_array, int nb_of_nbs)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (!digit_array)
@@ -87,7 +83,7 @@ int	dupe_check(int *digit_array, int nb_of_nbs)
 
 int	check_order(myStack *stack)
 {
-	myStack *temp;
+	myStack	*temp;
 
 	temp = stack;
 	if (!temp)
@@ -100,4 +96,3 @@ int	check_order(myStack *stack)
 	}
 	return (1);
 }
-

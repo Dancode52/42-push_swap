@@ -32,7 +32,7 @@ myStack	*ft_pslstnew(int number, int index)
 
 int	ft_pslstsize(myStack *lst)
 {
-	int	i;
+	int		i;
 	myStack	*tmp;
 
 	i = 0;
@@ -46,4 +46,3 @@ int	ft_pslstsize(myStack *lst)
 	}
 	return (i);
 }
-

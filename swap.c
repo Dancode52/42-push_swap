@@ -2,7 +2,7 @@
 
 static void	swap(myStack **stack)
 {
-	int temp;
+	int	temp;
 
 	if (!stack || !*stack || ft_pslstsize(*stack) <= 1)
 		return ;
@@ -29,5 +29,3 @@ void	swaps(myStack **stack_a, myStack **stack_b)
 	swap(stack_b);
 	write(1, "ss\n", 3);
 }
-
-

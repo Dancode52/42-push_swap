@@ -5,10 +5,10 @@
 
 char	*join_input(char **strings, int nb_of_strings)
 {
-	static char *res;
-	char *temp;
-	char *temp2;
-	int i;
+	static char	*res;
+	char		*temp;
+	char		*temp2;
+	int			i;
 
 	i = 1;
 	while (i < nb_of_strings)
@@ -26,14 +26,14 @@ char	*join_input(char **strings, int nb_of_strings)
 		free(temp2);
 		i++;
 	}
-	return(res);
+	return (res);
 }
 
 int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 {
 	int	*digit_array;
 	int	i;
-	int error;
+	int	error;
 
 	error = 0;
 	digit_array = (int *)malloc(nb_of_nbs * sizeof(int));
@@ -57,8 +57,8 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 
 int	amibigger(int number, int nb_of_nbs, int *array)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -73,14 +73,13 @@ int	amibigger(int number, int nb_of_nbs, int *array)
 
 myStack	*create_stack_a(int *digit_array, int nb_of_nbs)
 {
-	int i;
-	myStack *head;
-	myStack *stacks;
+	int		i;
+	myStack	*head;
+	myStack	*stacks;
 
 	i = 0;
 	if (!digit_array)
 	{
-		//write(2, "Error\n", 7);
 		return (0);
 	}
 	head = ft_pslstnew(digit_array[i], amibigger(digit_array[i], nb_of_nbs, digit_array));

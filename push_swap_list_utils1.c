@@ -41,4 +41,3 @@ void	free_stack_mem(myStack *lst)
 	}
 	free(lst);
 }
-

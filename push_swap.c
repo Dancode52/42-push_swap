@@ -1,9 +1,7 @@
-
 #include "libft/Headers/libft.h"
 #include <stdlib.h>
 #include "push_swap.h"
 #include <stdio.h>
-
 
 int	Small_Sorts(myStack **StackA, myStack **StackB)
 {
@@ -28,14 +26,14 @@ int	Small_Sorts(myStack **StackA, myStack **StackB)
 		sort_five(StackA, StackB);
 		return (1);
 	}
-	return(0);
+	return (0);
 }
 
 void	Reintegration_Sort(myStack **StackA, myStack **StackB)
 {
-	int max_index;
-	int pos;
-	int size;
+	int	max_index;
+	int	pos;
+	int	size;
 
 	while (*StackB)
 	{
@@ -56,53 +54,55 @@ void	Reintegration_Sort(myStack **StackA, myStack **StackB)
 	}
 }
 
-
 void	K_Distribution_Sort(myStack **a, myStack **b)
 {
-    int n = ft_pslstsize(*a);
-    int delta = ((n / 20) + 5);
-    int threshold = 0;
-    while (*a)
-    {
-        if (((*a)->position) <= (threshold + delta))
-        {
-            push_b(b, a);
-            if ((*b)->position <= threshold)
-                rotate_b(b);
-            threshold++;
-        }
-        else
-        {
-            rotate_a(a);
-        }
-    }
-}
+	int	n;
+	int	delta;
+	int	threshold;
 
+	n = ft_pslstsize(*a);
+	delta = ((n / 20) + 5);
+	threshold = 0;
+	while (*a)
+	{
+		if (((*a)->position) <= (threshold + delta))
+		{
+			push_b(b, a);
+			if ((*b)->position <= threshold)
+				rotate_b(b);
+			threshold++;
+		}
+		else
+		{
+			rotate_a(a);
+		}
+	}
+}
 
 int	main(int argc, char **argv)
 {
-	myStack *StackA;
-	myStack *StackB;
+	myStack	*stack_a;
+	myStack	*stack_b;
 
-	StackA = input_creation(argc, argv);
-	if (!StackA)
+	stack_a = input_creation(argc, argv);
+	if (!stack_a)
 	{
 		write(2, "Error\n", 7);
 		return (0);
 	}
-	if (check_order(StackA))
+	if (check_order(stack_a))
 	{
-		free_stack_mem(StackA);
+		free_stack_mem(stack_a);
 		return (0);
 	}
-	StackB = NULL;
-	if (Small_Sorts(&StackA, &StackB) == 1)
+	stack_b = NULL;
+	if (Small_Sorts(&stack_a, &stack_b) == 1)
 	{
-		free_stack_mem(StackA);
+		free_stack_mem(stack_a);
 		return (0);
 	}
-	K_Distribution_Sort(&StackA, &StackB);
-	Reintegration_Sort(&StackA, &StackB);
-	free_stack_mem(StackA);
+	K_Distribution_Sort(&stack_a, &stack_b);
+	Reintegration_Sort(&stack_a, &stack_b);
+	free_stack_mem(stack_a);
 	return (0);
 }
