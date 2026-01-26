@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 08:36:20 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/01/26 08:56:24 by dlanehar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void	swap(myStack **stack)
+static void	swap(t_stack **stack)
 {
 	int	temp;
 
@@ -11,19 +23,19 @@ static void	swap(myStack **stack)
 	(*stack)->next->number = temp;
 }
 
-void	swap_a(myStack **stack_a)
+void	swap_a(t_stack **stack_a)
 {
 	swap(stack_a);
 	write(1, "sa\n", 3);
 }
 
-void	swap_b(myStack **stack_b)
+void	swap_b(t_stack **stack_b)
 {
 	swap(stack_b);
 	write(1, "sb\n", 3);
 }
 
-void	swaps(myStack **stack_a, myStack **stack_b)
+void	swaps(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);

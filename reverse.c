@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 08:36:12 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/01/26 08:56:02 by dlanehar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdio.h>
 
-static void	revrotate(myStack **stack)
+static void	revrotate(t_stack **stack)
 {
-	myStack	*last;
-	myStack	*beforelast;
+	t_stack	*last;
+	t_stack	*beforelast;
 
 	if (!stack || !*stack)
 		return ;
@@ -18,19 +30,19 @@ static void	revrotate(myStack **stack)
 	ft_pslstadd_front(stack, last);
 }
 
-void	r_rotate_a(myStack **a)
+void	r_rotate_a(t_stack **a)
 {
 	revrotate(a);
 	write(1, "rra\n", 4);
 }
 
-void	r_rotate_b(myStack **b)
+void	r_rotate_b(t_stack **b)
 {
 	revrotate(b);
 	write(1, "rrb\n", 4);
 }
 
-void	rr_rotate(myStack **a, myStack **b)
+void	rr_rotate(t_stack **a, t_stack **b)
 {
 	revrotate(a);
 	revrotate(b);

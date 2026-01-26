@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_list_utils2.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 08:35:42 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/01/26 08:55:34 by dlanehar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-myStack	*ft_pslstlast(myStack *lst)
+t_stack	*ft_pslstlast(t_stack *lst)
 {
 	int	i;
 	int	end;
@@ -17,11 +29,11 @@ myStack	*ft_pslstlast(myStack *lst)
 	return (lst);
 }
 
-myStack	*ft_pslstnew(int number, int index)
+t_stack	*ft_pslstnew(int number, int index)
 {
-	myStack	*nodetest;
+	t_stack	*nodetest;
 
-	nodetest = malloc(sizeof(myStack));
+	nodetest = malloc(sizeof(t_stack));
 	if (!nodetest)
 		return (NULL);
 	nodetest->number = number;
@@ -30,10 +42,10 @@ myStack	*ft_pslstnew(int number, int index)
 	return (nodetest);
 }
 
-int	ft_pslstsize(myStack *lst)
+int	ft_pslstsize(t_stack *lst)
 {
 	int		i;
-	myStack	*tmp;
+	t_stack	*tmp;
 
 	i = 0;
 	tmp = lst;

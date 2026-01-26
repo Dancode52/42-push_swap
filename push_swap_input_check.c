@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/16 02:42:56 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/26 08:55:03 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ int	dupe_check(int *digit_array, int nb_of_nbs)
 	return (1);
 }
 
-int	check_order(myStack *stack)
+int	check_order(t_stack *stack)
 {
-	myStack	*temp;
+	t_stack	*temp;
 
 	temp = stack;
 	if (!temp)

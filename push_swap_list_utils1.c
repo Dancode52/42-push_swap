@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_list_utils1.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 08:35:39 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/01/26 08:55:27 by dlanehar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	ft_pslstadd_back(myStack **lst, myStack *new)
+void	ft_pslstadd_back(t_stack **lst, t_stack *new)
 {
-	myStack	*ptr;
+	t_stack	*ptr;
 
 	if (lst != NULL && new != NULL)
 	{
@@ -16,7 +28,7 @@ void	ft_pslstadd_back(myStack **lst, myStack *new)
 	}
 }
 
-void	ft_pslstadd_front(myStack **lst, myStack *new)
+void	ft_pslstadd_front(t_stack **lst, t_stack *new)
 {
 	if (!lst || !new)
 		return ;
@@ -27,9 +39,9 @@ void	ft_pslstadd_front(myStack **lst, myStack *new)
 	*lst = new;
 }
 
-void	free_stack_mem(myStack *lst)
+void	free_stack_mem(t_stack *lst)
 {
-	myStack	*save;
+	t_stack	*save;
 
 	if (!lst)
 		return ;

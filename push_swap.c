@@ -1,60 +1,72 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 08:35:58 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/01/26 08:55:49 by dlanehar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/Headers/libft.h"
 #include <stdlib.h>
 #include "push_swap.h"
 #include <stdio.h>
 
-int	Small_Sorts(myStack **StackA, myStack **StackB)
+int	small_sorts(t_stack **stack_a, t_stack **stack_b)
 {
-	(void)StackB;
-	if (ft_pslstsize(*StackA) == 2)
+	(void)stack_b;
+	if (ft_pslstsize(*stack_a) == 2)
 	{
-		sort_two(StackA);
+		sort_two(stack_a);
 		return (1);
 	}
-	if (ft_pslstsize(*StackA) == 3)
+	if (ft_pslstsize(*stack_a) == 3)
 	{
-		sort_three(StackA);
+		sort_three(stack_a);
 		return (1);
 	}
-	if (ft_pslstsize(*StackA) == 4)
+	if (ft_pslstsize(*stack_a) == 4)
 	{
-		sort_four(StackA, StackB);
+		sort_four(stack_a, stack_b);
 		return (1);
 	}
-	if (ft_pslstsize(*StackA) == 5)
+	if (ft_pslstsize(*stack_a) == 5)
 	{
-		sort_five(StackA, StackB);
+		sort_five(stack_a, stack_b);
 		return (1);
 	}
 	return (0);
 }
 
-void	Reintegration_Sort(myStack **StackA, myStack **StackB)
+void	reintegration_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	max_index;
 	int	pos;
 	int	size;
 
-	while (*StackB)
+	while (*stack_b)
 	{
-		max_index = find_max_index(*StackB);
-		pos = find_max_position(*StackB, max_index);
-		size = ft_pslstsize(*StackB);
+		max_index = find_max_index(*stack_b);
+		pos = find_max_position(*stack_b, max_index);
+		size = ft_pslstsize(*stack_b);
 		if (pos <= size / 2)
 		{
-			while ((*StackB)->position != max_index)
-				rotate_b(StackB);
+			while ((*stack_b)->position != max_index)
+				rotate_b(stack_b);
 		}
 		else
 		{
-			while ((*StackB)->position != max_index)
-				r_rotate_b(StackB);
+			while ((*stack_b)->position != max_index)
+				r_rotate_b(stack_b);
 		}
-		push_a(StackA, StackB);
+		push_a(stack_a, stack_b);
 	}
 }
 
-void	K_Distribution_Sort(myStack **a, myStack **b)
+void	k_distribution_sort(t_stack **a, t_stack **b)
 {
 	int	n;
 	int	delta;
@@ -81,8 +93,8 @@ void	K_Distribution_Sort(myStack **a, myStack **b)
 
 int	main(int argc, char **argv)
 {
-	myStack	*stack_a;
-	myStack	*stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	stack_a = input_creation(argc, argv);
 	if (!stack_a)
@@ -96,13 +108,13 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	stack_b = NULL;
-	if (Small_Sorts(&stack_a, &stack_b) == 1)
+	if (small_sorts(&stack_a, &stack_b) == 1)
 	{
 		free_stack_mem(stack_a);
 		return (0);
 	}
-	K_Distribution_Sort(&stack_a, &stack_b);
-	Reintegration_Sort(&stack_a, &stack_b);
+	k_distribution_sort(&stack_a, &stack_b);
+	reintegration_sort(&stack_a, &stack_b);
 	free_stack_mem(stack_a);
 	return (0);
 }

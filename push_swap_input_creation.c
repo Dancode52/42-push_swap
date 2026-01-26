@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_input_creation.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 08:35:03 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/01/26 08:55:16 by dlanehar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/Headers/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -55,7 +67,7 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 	return (digit_array);
 }
 
-int	amibigger(int number, int nb_of_nbs, int *array)
+int	indexer(int number, int nb_of_nbs, int *array)
 {
 	int	i;
 	int	count;
@@ -71,23 +83,26 @@ int	amibigger(int number, int nb_of_nbs, int *array)
 	return (count);
 }
 
-myStack	*create_stack_a(int *digit_array, int nb_of_nbs)
+t_stack	*create_stack_a(int *digit_array, int nb_of_nbs)
 {
 	int		i;
-	myStack	*head;
-	myStack	*stacks;
+	t_stack	*head;
+	t_stack	*stacks;
+	int		index;
 
 	i = 0;
 	if (!digit_array)
 	{
 		return (0);
 	}
-	head = ft_pslstnew(digit_array[i], amibigger(digit_array[i], nb_of_nbs, digit_array));
+	index = indexer(digit_array[i], nb_of_nbs, digit_array);
+	head = ft_pslstnew(digit_array[i], index);
 	head->size = i;
 	i++;
 	while (i < nb_of_nbs)
 	{
-		stacks = ft_pslstnew(digit_array[i], amibigger(digit_array[i], nb_of_nbs, digit_array));
+		index = indexer(digit_array[i], nb_of_nbs, digit_array);
+		stacks = ft_pslstnew(digit_array[i], index);
 		stacks->size = i;
 		ft_pslstadd_back(&head, stacks);
 		i++;
@@ -96,13 +111,13 @@ myStack	*create_stack_a(int *digit_array, int nb_of_nbs)
 	return (head);
 }
 
-myStack	*input_creation(int argc, char **argv)
+t_stack	*input_creation(int argc, char **argv)
 {
 	char	*input;
 	char	**split_input;
 	int		nb_of_nbs;
 	int		*digit_array;
-	myStack	*stack;
+	t_stack	*stack;
 
 	if (argc < 2)
 		return (0);

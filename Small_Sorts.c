@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Small_Sorts.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 08:36:17 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/01/26 08:56:16 by dlanehar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdio.h>
 
-void	sort_two(myStack **StackA)
+void	sort_two(t_stack **StackA)
 {
 	swap_a(StackA);
 }
 
-void	sort_three(myStack **StackA)
+void	sort_three(t_stack **StackA)
 {
-	myStack	**temp;
+	t_stack	**temp;
 	int		max;
 	int		max_pos;
 
@@ -30,7 +42,7 @@ void	sort_three(myStack **StackA)
 	}
 }
 
-void	sort_four(myStack **StackA, myStack **StackB)
+void	sort_four(t_stack **StackA, t_stack **StackB)
 {
 	int	size;
 	int	max_index;
@@ -56,7 +68,7 @@ void	sort_four(myStack **StackA, myStack **StackB)
 	rotate_a(StackA);
 }
 
-void	sort_five(myStack **StackA, myStack **StackB)
+void	sort_five(t_stack **StackA, t_stack **StackB)
 {
 	int	size;
 

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 08:36:06 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/01/26 08:55:55 by dlanehar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdio.h>
 
-void	push_a(myStack **a, myStack **b)
+void	push_a(t_stack **a, t_stack **b)
 {
-	myStack	*temp;
+	t_stack	*temp;
 
 	if (!*b)
 		return ;
@@ -13,9 +25,9 @@ void	push_a(myStack **a, myStack **b)
 	write(1, "pa\n", 3);
 }
 
-void	push_b(myStack **b, myStack **a)
+void	push_b(t_stack **b, t_stack **a)
 {
-	myStack	*temp;
+	t_stack	*temp;
 
 	if (!*a)
 		return ;

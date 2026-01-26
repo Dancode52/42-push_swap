@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 08:35:54 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/01/26 08:55:42 by dlanehar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/Headers/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,10 +29,10 @@ void	free_memory(char **badmem)
 	return ;
 }
 
-int	find_max_index(myStack *b)
+int	find_max_index(t_stack *b)
 {
 	int		max_index;
-	myStack	*temp;
+	t_stack	*temp;
 
 	temp = b;
 	max_index = 0;
@@ -33,10 +45,10 @@ int	find_max_index(myStack *b)
 	return (max_index);
 }
 
-int	find_min_index(myStack *b)
+int	find_min_index(t_stack *b)
 {
 	int		min_index;
-	myStack	*temp;
+	t_stack	*temp;
 
 	temp = b;
 	min_index = 0;
@@ -50,10 +62,10 @@ int	find_min_index(myStack *b)
 	return (min_index);
 }
 
-int	find_max_position(myStack *stack, int max_index)
+int	find_max_position(t_stack *stack, int max_index)
 {
 	int		i;
-	myStack	*temp;
+	t_stack	*temp;
 
 	i = 0;
 	temp = stack;
@@ -67,7 +79,7 @@ int	find_max_position(myStack *stack, int max_index)
 	return (i);
 }
 
-void	split_stack(myStack **StackA, myStack **StackB, int count)
+void	split_stack(t_stack **StackA, t_stack **StackB, int count)
 {
 	int	max_index;
 	int	max_pos;
