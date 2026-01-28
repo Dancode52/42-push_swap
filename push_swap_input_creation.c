@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:03 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/26 08:55:16 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/28 15:37:24 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*join_input(char **strings, int nb_of_strings)
 	i = 1;
 	while (i < nb_of_strings)
 	{
+		spaceoremptychecker(strings[i]);
 		temp = ft_strjoin(strings[i], " ");
 		if (!temp)
 			return (NULL);
@@ -120,7 +121,7 @@ t_stack	*input_creation(int argc, char **argv)
 	t_stack	*stack;
 
 	if (argc < 2)
-		return (0);
+		exit (EXIT_FAILURE);
 	input = join_input(argv, argc);
 	split_input = ft_split(input, ' ');
 	if (!split_input)
