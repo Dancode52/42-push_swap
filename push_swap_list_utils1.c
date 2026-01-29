@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:39 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/26 08:55:27 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/29 12:47:29 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_pslstadd_back(t_stack **lst, t_stack *new)
 	{
 		if (*lst != NULL)
 		{
-			ptr = ft_pslstlast(*lst);
+			ptr = ft_pslstlast((*lst));
 			ptr->next = new;
 		}
 		else

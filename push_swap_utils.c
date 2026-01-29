@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:54 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/26 08:55:42 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/29 10:08:28 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	free_memory(char **badmem)
 	return ;
 }
 
-int	find_max_index(t_stack *b)
+int	find_max_index(t_stack **b)
 {
 	int		max_index;
 	t_stack	*temp;
 
-	temp = b;
+	temp = *b;
 	max_index = 0;
 	while (temp)
 	{
@@ -62,13 +62,13 @@ int	find_min_index(t_stack *b)
 	return (min_index);
 }
 
-int	find_max_position(t_stack *stack, int max_index)
+int	find_max_position(t_stack **stack, int max_index)
 {
 	int		i;
 	t_stack	*temp;
 
 	i = 0;
-	temp = stack;
+	temp = *stack;
 	while (temp)
 	{
 		if (temp->position == max_index)
@@ -90,8 +90,8 @@ void	split_stack(t_stack **StackA, t_stack **StackB, int count)
 	while (i < count / 2)
 	{
 		size_a = ft_pslstsize(*StackA);
-		max_index = find_max_index(*StackA);
-		max_pos = find_max_position(*StackA, max_index);
+		max_index = find_max_index(StackA);
+		max_pos = find_max_position(StackA, max_index);
 		if (max_pos > size_a / 2)
 		{
 			while ((*StackA)->position != max_index)

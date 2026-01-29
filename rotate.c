@@ -6,22 +6,23 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:15 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/26 08:56:09 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/29 13:17:29 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 static void	rotate(t_stack **stack)
 {
 	t_stack	*temp1;
 
-	if (!stack || !*stack)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
+	ft_pslstlast(*stack)->next = *stack;
 	temp1 = (*stack)->next;
-	ft_pslstadd_back(stack, (*stack));
 	(*stack)->next = NULL;
-	(*stack) = temp1;
+	*stack = temp1;
 }
 
 void	rotate_a(t_stack **a)

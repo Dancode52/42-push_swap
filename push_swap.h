@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:02 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/28 15:36:13 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/29 15:29:02 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 # include "libft.h"
 # include <limits.h>
 
-typedef struct my_ps_Stack
+typedef struct s_my_ps_stack
 {
-	int					number;
-	int					position;
-	int					size;
-	struct my_ps_Stack	*next;
+	int						number;
+	int						position;
+	int						size;
+	struct s_my_ps_stack	*next;
 }	t_stack;
 
 //------------ INPUT CHECKING ----------------
@@ -37,8 +37,8 @@ int		check_order(t_stack *stack);
 int		ft_atoi_limit_check(const char *str, int *error);
 void	spaceoremptychecker(char *input);
 
-int		find_max_position(t_stack *stack, int max_index);
-int		find_max_index(t_stack *b);
+int		find_max_position(t_stack **stack, int max_index);
+int		find_max_index(t_stack **b);
 int		find_min_index(t_stack *b);
 
 //------------ LIST UTILITIES ----------------

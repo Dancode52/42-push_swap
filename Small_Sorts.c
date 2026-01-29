@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:17 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/26 08:56:16 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/29 10:09:49 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	sort_three(t_stack **StackA)
 	int		max_pos;
 
 	temp = StackA;
-	max = find_max_index((*temp));
-	max_pos = find_max_position(*temp, max);
+	max = find_max_index(temp);
+	max_pos = find_max_position(temp, max);
 	while (!check_order(*temp))
 	{
 		if (max_pos == 0)
@@ -49,8 +49,8 @@ void	sort_four(t_stack **StackA, t_stack **StackB)
 	int	max_pos;
 
 	size = ft_pslstsize(*StackA);
-	max_index = find_max_index(*StackA);
-	max_pos = find_max_position(*StackA, max_index);
+	max_index = find_max_index(StackA);
+	max_pos = find_max_position(StackA, max_index);
 	if (max_pos <= size / 2)
 	{
 		while ((*StackA)->position != max_index)

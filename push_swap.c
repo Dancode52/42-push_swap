@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:58 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/29 08:39:27 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/29 13:03:57 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	reintegration_sort(t_stack **stack_a, t_stack **stack_b)
 
 	while (*stack_b)
 	{
-		max_index = find_max_index(*stack_b);
-		pos = find_max_position(*stack_b, max_index);
+		max_index = find_max_index(stack_b);
+		pos = find_max_position(stack_b, max_index);
 		size = ft_pslstsize(*stack_b);
 		if (pos <= size / 2)
 		{
@@ -73,7 +73,7 @@ void	k_distribution_sort(t_stack **a, t_stack **b)
 	int	threshold;
 
 	n = ft_pslstsize(*a);
-	delta = ((n / 20) + 5);
+	delta = ((n / 20) + 7);
 	threshold = 0;
 	while (*a)
 	{
@@ -95,6 +95,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	t_stack	*temp;
 
 	stack_a = input_creation(argc, argv);
 	stack_b = NULL;
@@ -103,13 +104,24 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 7);
 		return (0);
 	}
-	if (check_order(stack_a) || small_sorts(&stack_a, &stack_b) == 1)
+	if (check_order(stack_a))
+	{
+		free_stack_mem(stack_a);
+		return (0);
+	}
+	if (small_sorts(&stack_a, &stack_b) == 1)
 	{
 		free_stack_mem(stack_a);
 		return (0);
 	}
 	k_distribution_sort(&stack_a, &stack_b);
 	reintegration_sort(&stack_a, &stack_b);
+	temp = stack_a;
+	// while (temp)
+	// {
+	// 	printf("%i\n", temp->number);
+	// 	temp = temp->next;
+	// }
 	free_stack_mem(stack_a);
 	return (0);
 }

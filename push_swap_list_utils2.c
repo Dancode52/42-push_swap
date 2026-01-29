@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:42 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/26 08:55:34 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/29 12:56:48 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,11 @@
 
 t_stack	*ft_pslstlast(t_stack *lst)
 {
-	int	i;
-	int	end;
-
 	if (!lst)
 		return (NULL);
-	i = 0;
-	end = ft_pslstsize(lst);
-	while (i < end - 1)
+	while (lst->next)
 	{
 		lst = lst->next;
-		i++;
 	}
 	return (lst);
 }
