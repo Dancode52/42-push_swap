@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:58 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/26 08:55:49 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/01/29 08:39:27 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,18 +97,13 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 
 	stack_a = input_creation(argc, argv);
+	stack_b = NULL;
 	if (!stack_a)
 	{
 		write(2, "Error\n", 7);
 		return (0);
 	}
-	if (check_order(stack_a))
-	{
-		free_stack_mem(stack_a);
-		return (0);
-	}
-	stack_b = NULL;
-	if (small_sorts(&stack_a, &stack_b) == 1)
+	if (check_order(stack_a) || small_sorts(&stack_a, &stack_b) == 1)
 	{
 		free_stack_mem(stack_a);
 		return (0);
