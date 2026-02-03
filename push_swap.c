@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:58 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/29 13:03:57 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/03 15:05:13 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	t_stack	*temp;
 
 	stack_a = input_creation(argc, argv);
 	stack_b = NULL;
@@ -116,12 +115,6 @@ int	main(int argc, char **argv)
 	}
 	k_distribution_sort(&stack_a, &stack_b);
 	reintegration_sort(&stack_a, &stack_b);
-	temp = stack_a;
-	// while (temp)
-	// {
-	// 	printf("%i\n", temp->number);
-	// 	temp = temp->next;
-	// }
 	free_stack_mem(stack_a);
 	return (0);
 }
