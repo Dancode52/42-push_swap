@@ -6,14 +6,13 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:58 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/03 15:05:13 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:25:57 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/Headers/libft.h"
+#include "../libft/Headers/libft.h"
 #include <stdlib.h>
 #include "push_swap.h"
-#include <stdio.h>
 
 int	small_sorts(t_stack **stack_a, t_stack **stack_b)
 {

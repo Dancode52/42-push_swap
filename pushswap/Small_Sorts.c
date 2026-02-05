@@ -6,12 +6,11 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:17 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/29 10:09:49 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:26:06 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	sort_two(t_stack **StackA)
 {

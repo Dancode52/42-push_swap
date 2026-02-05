@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:02 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/29 15:29:02 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:54:49 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
-# include "libft.h"
+#include "../libft/Headers/libft.h"
 # include <limits.h>
 
 typedef struct s_my_ps_stack

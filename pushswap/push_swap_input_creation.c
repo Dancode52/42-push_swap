@@ -6,12 +6,11 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:03 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/28 15:37:24 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:25:35 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/Headers/libft.h"
-#include <stdio.h>
+#include "../libft/Headers/libft.h"
 #include <stdlib.h>
 #include "push_swap.h"
 

@@ -8,8 +8,9 @@ BONUS_FILES = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_ls
 ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
 OBJDIR = ../../obj
-OFILES = $(CFILES:%.c=$(OBJDIR)/%.o)
-BONUS_OFILES = $(BONUS_FILES:%.c=$(OBJDIR)/%.o)
+LIBFT_OBJ := 42lib
+OFILES = $(CFILES:%.c=$(OBJDIR)/$(LIBFT_OBJ)/%.o)
+BONUS_OFILES = $(BONUS_FILES:%.c=$(OBJDIR)/$(LIBFT_OBJ)/%.o)
 CFLAGS = -Wall -Werror -Wextra
 CC = cc
 NAME = ../../libft.a
@@ -17,33 +18,30 @@ NAME_BONUS = ../../libft.a
 
 all: $(NAME)
 
-directory:
-	@if ! [ -d $(OBJDIR) ]; then mkdir -p $(OBJDIR);\
-	fi
-
-bonus:	$(OFILES) $(BONUS_OFILES)
+bonus: directory $(OFILES) $(BONUS_OFILES)
 	@ar rcs $(NAME) $(OFILES) $(BONUS_OFILES)
 
 clean:
 	@rm -rf $(OFILES) $(BONUS_OFILES)
 	@rm -rf $(OFILES)
-	@if [ -d $(OBJDIR) ]; then rmdir $(OBJDIR); \
-	fi
 
 fclean: clean
 	@rm -f $(NAME)
 
 re: fclean $(NAME)
 
+directory:
+	mkdir -p $(OBJDIR)/$(LIBFT_OBJ)
+
 $(NAME): directory $(OFILES)
 	@ar rcs $(NAME) $(OFILES)
 
-$(OBJDIR)/%.o : %.c
-	@$(CC) $(CFLAGS) -o $@ -c $<
+$(OBJDIR)/$(LIBFT_OBJ)/%.o : %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
 
-$(OBJDIR)/%_bonus.o : %_bonus.c
-	@$(CC) $(CFLAGS) -o $@ -c $<
+$(OBJDIR)/$(LIBFT_OBJ)/%_bonus.o : %_bonus.c
+	$(CC) $(CFLAGS) -o $@ -c $<
 
-.PHONY:  re fclean clean bonus all
+.PHONY:  re fclean clean bonus all directory
 
 

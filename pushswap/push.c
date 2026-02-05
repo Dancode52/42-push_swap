@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 13:26:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2025/12/23 09:22:36 by dlanehar         ###   ########.fr       */
+/*   Created: 2026/01/26 08:36:06 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/02/05 10:25:59 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdarg.h>
+#include "push_swap.h"
 
-int		ft_printf(const char *format, ...)__attribute__((format(printf, 1, 2)));
-ssize_t	ft_usiputnbrcount_base_fd(size_t n, char *base, int fd);
-ssize_t	ft_putstrcount_fd(char *s, int fd);
-ssize_t	ft_putcharcount_fd(char c, int fd);
-ssize_t	ft_putnbrcount_fd(int n, int fd);
-size_t	ft_strlen(const char *s);
+void	push_a(t_stack **a, t_stack **b)
+{
+	t_stack	*temp;
 
-#endif
+	if (!*b)
+		return ;
+	temp = (*b)->next;
+	ft_pslstadd_front(a, *b);
+	*b = temp;
+	write(1, "pa\n", 3);
+}
+
+void	push_b(t_stack **b, t_stack **a)
+{
+	t_stack	*temp;
+
+	if (!*a)
+		return ;
+	temp = (*a)->next;
+	ft_pslstadd_front(b, *a);
+	*a = temp;
+	write(1, "pb\n", 3);
+}

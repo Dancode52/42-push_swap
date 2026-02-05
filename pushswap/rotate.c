@@ -6,12 +6,11 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:15 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/29 13:17:29 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:26:04 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static void	rotate(t_stack **stack)
 {

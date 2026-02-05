@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_input_check.c                            :+:      :+:    :+:   */
+/*   push_swap_input_check_1.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/28 15:16:40 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:25:32 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/Headers/libft.h"
-#include <stdio.h>
+#include "../libft/Headers/libft.h"
 #include <stdlib.h>
 #include "push_swap.h"
 
