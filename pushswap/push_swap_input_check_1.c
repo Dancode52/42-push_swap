@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/05 10:25:32 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:53:01 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static int	plus_minus_check(char **split_input, int i, int j)
 
 int	input_check(char **split_input)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (split_input[i])

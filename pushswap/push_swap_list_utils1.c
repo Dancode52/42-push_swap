@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:39 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 11:22:04 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 16:03:57 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ void	free_stack_mem(t_stack *lst)
 	free(lst);
 }
 
-void	create_link_nodes(t_stack **head, int *dig_arr, int nb_of_nbs, int i)
+void	create_link_nodes(t_stack **head, int *dig_arr, size_t n_nbs, size_t i)
 {
 	t_stack	*node;
-	int		index;
+	size_t	index;
 
-	index = indexer(dig_arr[i], nb_of_nbs, dig_arr);
+	index = indexer(dig_arr[i], n_nbs, dig_arr);
 	node = ft_pslstnew(dig_arr[i], index);
 	if (!node)
 	{
@@ -67,6 +67,5 @@ void	create_link_nodes(t_stack **head, int *dig_arr, int nb_of_nbs, int i)
 			free(dig_arr);
 			return ;
 	}
-	node->size = i;
 	ft_pslstadd_back(head, node);
 }

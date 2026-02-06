@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:58 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/05 10:25:57 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:59:07 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ void	reintegration_sort(t_stack **stack_a, t_stack **stack_b)
 	while (*stack_b)
 	{
 		max_index = find_max_index(stack_b);
-		pos = find_max_position(stack_b, max_index);
+		pos = find_max_index_position(stack_b, max_index);
 		size = ft_pslstsize(*stack_b);
 		if (pos <= size / 2)
 		{
-			while ((*stack_b)->position != max_index)
+			while ((*stack_b)->index != max_index)
 				rotate_b(stack_b);
 		}
 		else
 		{
-			while ((*stack_b)->position != max_index)
+			while ((*stack_b)->index != max_index)
 				r_rotate_b(stack_b);
 		}
 		push_a(stack_a, stack_b);
@@ -67,19 +67,19 @@ void	reintegration_sort(t_stack **stack_a, t_stack **stack_b)
 
 void	k_distribution_sort(t_stack **a, t_stack **b)
 {
-	int	n;
-	int	delta;
-	int	threshold;
+	size_t	n;
+	size_t	delta;
+	size_t	threshold;
 
 	n = ft_pslstsize(*a);
 	delta = ((n / 20) + 7);
 	threshold = 0;
 	while (*a)
 	{
-		if (((*a)->position) <= (threshold + delta))
+		if (((*a)->index) <= (threshold + delta))
 		{
 			push_b(b, a);
-			if ((*b)->position <= threshold)
+			if ((*b)->index <= threshold)
 				rotate_b(b);
 			threshold++;
 		}

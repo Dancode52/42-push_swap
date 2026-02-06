@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:03 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 11:22:04 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 16:02:24 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ char	*join_input(char **strings, int nb_of_strings)
 	return (res);
 }
 
-int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
+int	*str_array_to_int_array(size_t nb_of_nbs, char **split_input)
 {
 	int	*digit_array;
-	int	i;
+	size_t	i;
 	int	error;
 
 	error = 0;
@@ -68,7 +68,7 @@ int	*str_array_to_int_array(int nb_of_nbs, char **split_input)
 	return (digit_array);
 }
 
-int	indexer(int number, int nb_of_nbs, int *array)
+size_t	indexer(int number, size_t nb_of_nbs, int *array)
 {
 	int	i;
 	int	count;
@@ -84,11 +84,11 @@ int	indexer(int number, int nb_of_nbs, int *array)
 	return (count);
 }
 
-t_stack	*create_stack_a(int *digit_array, int nb_of_nbs)
+t_stack	*create_stack_a(int *digit_array, size_t nb_of_nbs)
 {
-	int		i;
+	size_t		i;
 	t_stack	*head;
-	int		index;
+	size_t		index;
 
 	i = 0;
 	if (!digit_array || !nb_of_nbs)
@@ -100,7 +100,6 @@ t_stack	*create_stack_a(int *digit_array, int nb_of_nbs)
 		free(digit_array);
 		return (NULL);
 	}
-	head->size = i;
 	i++;
 	while (i < nb_of_nbs)
 	{
@@ -115,7 +114,7 @@ t_stack	*input_creation(int argc, char **argv)
 {
 	char	*input;
 	char	**split_input;
-	int		nb_of_nbs;
+	size_t		nb_of_nbs;
 	int		*digit_array;
 	t_stack	*stack;
 

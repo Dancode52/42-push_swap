@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:42 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/29 12:56:48 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 16:02:42 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_stack	*ft_pslstlast(t_stack *lst)
 	return (lst);
 }
 
-t_stack	*ft_pslstnew(int number, int index)
+t_stack	*ft_pslstnew(int number, size_t index)
 {
 	t_stack	*nodetest;
 
@@ -31,14 +31,14 @@ t_stack	*ft_pslstnew(int number, int index)
 	if (!nodetest)
 		return (NULL);
 	nodetest->number = number;
-	nodetest->position = index;
+	nodetest->index = index;
 	nodetest->next = NULL;
 	return (nodetest);
 }
 
-int	ft_pslstsize(t_stack *lst)
+size_t	ft_pslstsize(t_stack *lst)
 {
-	int		i;
+	size_t		i;
 	t_stack	*tmp;
 
 	i = 0;

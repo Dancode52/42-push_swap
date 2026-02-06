@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 09:54:06 by dlanehar          #+#    #+#             */
-/*   Updated: 2025/12/23 14:25:18 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:52:36 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static void	free_memory(char **badmem)
 	return ;
 }
 
-static int	word_length(const char *s, char c)
+static size_t	word_length(const char *s, char c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] && s[i] != c)
@@ -36,10 +36,10 @@ static int	word_length(const char *s, char c)
 	return (i);
 }
 
-static int	word_count(const char *s, char c)
+static size_t	word_count(const char *s, char c)
 {
-	int	i;
-	int	wc;
+	size_t	i;
+	size_t	wc;
 
 	i = 0;
 	wc = 0;
@@ -60,8 +60,8 @@ static int	word_count(const char *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**array;
-	int		i;
-	int		j;
+	size_t		i;
+	size_t		j;
 
 	if (!s)
 		return (NULL);

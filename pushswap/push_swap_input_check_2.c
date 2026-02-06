@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 15:35:25 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 09:31:30 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:49:59 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*spaceoremptychecker(char *input, char *tofree)
 {
-	int	i;
-	int	len;
-	int	count;
+	size_t	i;
+	size_t	len;
+	size_t	count;
 
 	i = 0;
 	len = ft_strlen(input);

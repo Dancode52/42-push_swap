@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:02 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 10:33:30 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 16:04:58 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 typedef struct s_my_ps_stack
 {
 	int						number;
-	int						position;
-	int						size;
+	size_t					index;
 	struct s_my_ps_stack	*next;
 }	t_stack;
 
@@ -38,9 +37,9 @@ int		ft_atoi_limit_check(const char *str, int *error);
 char	*spaceoremptychecker(char *input, char *tofree);
 void	input_mallocfail(char *tofree);
 
-int		find_max_position(t_stack **stack, int max_index);
-int		find_max_index(t_stack **b);
-int		find_min_index(t_stack *b);
+size_t		find_max_index_position(t_stack **stack, size_t max_index);
+size_t		find_max_index(t_stack **b);
+size_t		find_min_index(t_stack *b);
 
 //------------ LIST UTILITIES ----------------
 
@@ -50,8 +49,8 @@ t_stack	*ft_pslstlast(t_stack *lst);
 t_stack	*ft_pslstnew(int number, int index);
 int		ft_pslstsize(t_stack *lst);
 void	free_stack_mem(t_stack *lst);
-void	create_link_nodes(t_stack **head, int *dig_arr, int nb_of_nbs, int i);
-int		indexer(int number, int nb_of_nbs, int *array);
+void	create_link_nodes(t_stack **head, int *dig_arr, size_t nb_of_nbs, size_t i);
+size_t	indexer(int number, size_t nb_of_nbs, int *array);
 
 // ----------- PUSHING -----------------------
 
