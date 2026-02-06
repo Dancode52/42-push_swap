@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:54 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 15:57:56 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 16:07:02 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int	find_min_index(t_stack *b)
 	return (min_index);
 }
 
-int	find_max_index_position(t_stack **stack, int max_index)
+size_t	find_max_index_position(t_stack **stack, int max_index)
 {
-	int		i;
+	size_t		i;
 	t_stack	*temp;
 
 	i = 0;
