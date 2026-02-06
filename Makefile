@@ -3,7 +3,7 @@ CLT_NAME	:= client
 LIBFT := libft.a
 
 CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror
+CFLAGS		:= -Wall -Wextra -Werror -g
 
 PUSHSWAP_DIR := pushswap
 PUSHSWAP_FILE = push_swap_input_check_1.c push_swap_input_check_2.c push_swap_input_creation.c push_swap_list_utils1.c push_swap_list_utils2.c \
