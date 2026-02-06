@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:03 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/05 10:25:35 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 11:22:04 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 #include <stdlib.h>
 #include "push_swap.h"
 
+
 char	*join_input(char **strings, int nb_of_strings)
 {
-	static char	*res;
+	static char	*res = NULL;
 	char		*temp;
 	char		*temp2;
 	int			i;
@@ -24,18 +25,18 @@ char	*join_input(char **strings, int nb_of_strings)
 	i = 1;
 	while (i < nb_of_strings)
 	{
-		spaceoremptychecker(strings[i]);
+		if (!spaceoremptychecker(strings[i], res))
+			return (NULL);
 		temp = ft_strjoin(strings[i], " ");
 		if (!temp)
-			return (NULL);
+			input_mallocfail(res);
 		temp2 = ft_strjoin(res, temp);
 		if (!temp2)
-			return (NULL);
+			input_mallocfail(res);
 		if (res)
 			free(res);
-		res = ft_strdup(temp2);
+		res = temp2;
 		free(temp);
-		free(temp2);
 		i++;
 	}
 	return (res);
@@ -87,24 +88,23 @@ t_stack	*create_stack_a(int *digit_array, int nb_of_nbs)
 {
 	int		i;
 	t_stack	*head;
-	t_stack	*stacks;
 	int		index;
 
 	i = 0;
-	if (!digit_array)
-	{
+	if (!digit_array || !nb_of_nbs)
 		return (0);
-	}
 	index = indexer(digit_array[i], nb_of_nbs, digit_array);
 	head = ft_pslstnew(digit_array[i], index);
+	if (!head)
+	{
+		free(digit_array);
+		return (NULL);
+	}
 	head->size = i;
 	i++;
 	while (i < nb_of_nbs)
 	{
-		index = indexer(digit_array[i], nb_of_nbs, digit_array);
-		stacks = ft_pslstnew(digit_array[i], index);
-		stacks->size = i;
-		ft_pslstadd_back(&head, stacks);
+		create_link_nodes(&head, digit_array, nb_of_nbs, i);
 		i++;
 	}
 	free(digit_array);

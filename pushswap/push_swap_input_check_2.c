@@ -6,13 +6,13 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 15:35:25 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/28 15:38:24 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 09:31:30 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	spaceoremptychecker(char *input)
+char	*spaceoremptychecker(char *input, char *tofree)
 {
 	int	i;
 	int	len;
@@ -23,8 +23,8 @@ void	spaceoremptychecker(char *input)
 	count = 0;
 	if (input[0] == '\0')
 	{
-		write(2, "Error\n", 7);
-		exit (EXIT_FAILURE);
+		free(tofree);
+		return (NULL);
 	}
 	while (input[i])
 	{
@@ -32,11 +32,17 @@ void	spaceoremptychecker(char *input)
 			count++;
 		i++;
 	}
-	if (count != len)
-		return ;
-	else
+	if (count == len)
 	{
-		write(2, "Error\n", 7);
-		exit (EXIT_FAILURE);
+		free(tofree);
+		return (NULL);
 	}
+	return (input);
+}
+
+void	input_mallocfail(char *tofree)
+{
+	free(tofree);
+	write(2, "Error\n", 7);
+	exit(EXIT_FAILURE);
 }

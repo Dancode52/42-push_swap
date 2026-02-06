@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:02 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/05 09:54:49 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/06 10:33:30 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int		input_min_max_check(char **split_input, int i);
 int		dupe_check(int *digit_array, int nb_of_nbs);
 int		check_order(t_stack *stack);
 int		ft_atoi_limit_check(const char *str, int *error);
-void	spaceoremptychecker(char *input);
+char	*spaceoremptychecker(char *input, char *tofree);
+void	input_mallocfail(char *tofree);
 
 int		find_max_position(t_stack **stack, int max_index);
 int		find_max_index(t_stack **b);
@@ -49,6 +50,8 @@ t_stack	*ft_pslstlast(t_stack *lst);
 t_stack	*ft_pslstnew(int number, int index);
 int		ft_pslstsize(t_stack *lst);
 void	free_stack_mem(t_stack *lst);
+void	create_link_nodes(t_stack **head, int *dig_arr, int nb_of_nbs, int i);
+int		indexer(int number, int nb_of_nbs, int *array);
 
 // ----------- PUSHING -----------------------
 
