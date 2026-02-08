@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:54 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 16:07:02 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/08 03:37:17 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	free_memory(char **badmem)
 	return ;
 }
 
-int	find_max_index(t_stack **b)
+size_t	find_max_index(t_stack **b)
 {
-	int		max_index;
+	size_t	max_index;
 	t_stack	*temp;
 
 	temp = *b;
@@ -44,9 +44,9 @@ int	find_max_index(t_stack **b)
 	return (max_index);
 }
 
-int	find_min_index(t_stack *b)
+size_t	find_min_index(t_stack *b)
 {
-	int		min_index;
+	size_t	min_index;
 	t_stack	*temp;
 
 	temp = b;
@@ -61,7 +61,7 @@ int	find_min_index(t_stack *b)
 	return (min_index);
 }
 
-size_t	find_max_index_position(t_stack **stack, int max_index)
+size_t	find_max_index_position(t_stack **stack, size_t max_index)
 {
 	size_t		i;
 	t_stack	*temp;
@@ -78,19 +78,19 @@ size_t	find_max_index_position(t_stack **stack, int max_index)
 	return (i);
 }
 
-void	split_stack(t_stack **StackA, t_stack **StackB, int count)
+void	split_stack(t_stack **StackA, t_stack **StackB, size_t count)
 {
-	int	max_index;
-	int	max_pos;
-	int	size_a;
-	int	i;
+	size_t	max_index;
+	size_t	max_pos;
+	size_t	size_a;
+	size_t	i;
 
 	i = 0;
 	while (i < count / 2)
 	{
 		size_a = ft_pslstsize(*StackA);
 		max_index = find_max_index(StackA);
-		max_pos = find_max_position(StackA, max_index);
+		max_pos = find_max_index_position(StackA, max_index);
 		if (max_pos > size_a / 2)
 		{
 			while ((*StackA)->index != max_index)

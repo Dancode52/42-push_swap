@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:02 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 16:04:58 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/08 03:38:20 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ size_t		find_min_index(t_stack *b);
 void	ft_pslstadd_back(t_stack **lst, t_stack *new);
 void	ft_pslstadd_front(t_stack **lst, t_stack *new);
 t_stack	*ft_pslstlast(t_stack *lst);
-t_stack	*ft_pslstnew(int number, int index);
-int		ft_pslstsize(t_stack *lst);
+t_stack	*ft_pslstnew(int number, size_t index);
+size_t		ft_pslstsize(t_stack *lst);
 void	free_stack_mem(t_stack *lst);
 void	create_link_nodes(t_stack **head, int *dig_arr, size_t nb_of_nbs, size_t i);
 size_t	indexer(int number, size_t nb_of_nbs, int *array);
@@ -78,6 +78,6 @@ void	sort_three(t_stack **StackA);
 void	sort_four(t_stack **StackA, t_stack **StackB);
 void	sort_five(t_stack **StackA, t_stack **StackB);
 int		small_sorts(t_stack **StackA, t_stack **StackB);
-void	split_stack(t_stack **StackA, t_stack **StackB, int count);
+void	split_stack(t_stack **StackA, t_stack **StackB, size_t count);
 
 #endif

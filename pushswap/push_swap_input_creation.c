@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:03 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 16:02:24 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/08 03:32:42 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int	*str_array_to_int_array(size_t nb_of_nbs, char **split_input)
 
 size_t	indexer(int number, size_t nb_of_nbs, int *array)
 {
-	int	i;
-	int	count;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
 	count = 0;

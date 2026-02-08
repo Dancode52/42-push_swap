@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:17 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/05 10:26:06 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/08 03:39:53 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	sort_two(t_stack **StackA)
 void	sort_three(t_stack **StackA)
 {
 	t_stack	**temp;
-	int		max;
-	int		max_pos;
+	size_t		max;
+	size_t		max_pos;
 
 	temp = StackA;
 	max = find_max_index(temp);
-	max_pos = find_max_position(temp, max);
+	max_pos = find_max_index_position(temp, max);
 	while (!check_order(*temp))
 	{
 		if (max_pos == 0)
@@ -43,21 +43,21 @@ void	sort_three(t_stack **StackA)
 
 void	sort_four(t_stack **StackA, t_stack **StackB)
 {
-	int	size;
-	int	max_index;
-	int	max_pos;
+	size_t	size;
+	size_t	max_index;
+	size_t	max_pos;
 
 	size = ft_pslstsize(*StackA);
 	max_index = find_max_index(StackA);
-	max_pos = find_max_position(StackA, max_index);
+	max_pos = find_max_index_position(StackA, max_index);
 	if (max_pos <= size / 2)
 	{
-		while ((*StackA)->position != max_index)
+		while ((*StackA)->index != max_index)
 			rotate_a(StackA);
 	}
 	else
 	{
-		while ((*StackA)->position != max_index)
+		while ((*StackA)->index != max_index)
 			r_rotate_a(StackA);
 	}
 	push_b(StackB, StackA);
@@ -69,7 +69,7 @@ void	sort_four(t_stack **StackA, t_stack **StackB)
 
 void	sort_five(t_stack **StackA, t_stack **StackB)
 {
-	int	size;
+	size_t	size;
 
 	size = ft_pslstsize(*StackA);
 	split_stack(StackA, StackB, size);

@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:58 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 15:59:07 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/08 03:38:57 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	small_sorts(t_stack **stack_a, t_stack **stack_b)
 
 void	reintegration_sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int	max_index;
-	int	pos;
-	int	size;
+	size_t	max_index;
+	size_t	pos;
+	size_t	size;
 
 	while (*stack_b)
 	{
