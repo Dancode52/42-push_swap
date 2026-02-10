@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 15:35:25 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/10 11:33:26 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/10 11:37:57 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	**splitting_input(char *input)
 	if (!res)
 		return (NULL);
 	return (res);
-}"1 -5 97 150		6"
+}
 
 void	input_mallocfail(char *tofree)
 {
