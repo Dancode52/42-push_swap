@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 15:35:25 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 15:49:59 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/10 11:33:26 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,30 @@ char	*spaceoremptychecker(char *input, char *tofree)
 	}
 	return (input);
 }
+
+char	**splitting_input(char *input)
+{
+	size_t	i;
+	char	**res;
+
+	i = 0;
+	if (!input)
+		return (NULL);
+	while (input[i])
+	{
+		if (input[i] >= 9 && input[i] <= 13)
+		{
+			free(input);
+			write(2, "Error\n", 7);
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	res = ft_split(input, ' ');
+	if (!res)
+		return (NULL);
+	return (res);
+}"1 -5 97 150		6"
 
 void	input_mallocfail(char *tofree)
 {

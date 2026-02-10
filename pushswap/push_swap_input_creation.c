@@ -6,14 +6,13 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:03 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/08 03:32:42 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/10 11:26:39 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/Headers/libft.h"
 #include <stdlib.h>
 #include "push_swap.h"
-
 
 char	*join_input(char **strings, int nb_of_strings)
 {
@@ -44,9 +43,9 @@ char	*join_input(char **strings, int nb_of_strings)
 
 int	*str_array_to_int_array(size_t nb_of_nbs, char **split_input)
 {
-	int	*digit_array;
+	int		*digit_array;
 	size_t	i;
-	int	error;
+	int		error;
 
 	error = 0;
 	digit_array = (int *)malloc(nb_of_nbs * sizeof(int));
@@ -87,7 +86,7 @@ size_t	indexer(int number, size_t nb_of_nbs, int *array)
 t_stack	*create_stack_a(int *digit_array, size_t nb_of_nbs)
 {
 	size_t		i;
-	t_stack	*head;
+	t_stack		*head;
 	size_t		index;
 
 	i = 0;
@@ -114,14 +113,14 @@ t_stack	*input_creation(int argc, char **argv)
 {
 	char	*input;
 	char	**split_input;
-	size_t		nb_of_nbs;
+	size_t	nb_of_nbs;
 	int		*digit_array;
 	t_stack	*stack;
 
 	if (argc < 2)
 		exit (EXIT_FAILURE);
 	input = join_input(argv, argc);
-	split_input = ft_split(input, ' ');
+	split_input = splitting_input(input);
 	if (!split_input)
 		return (0);
 	free(input);

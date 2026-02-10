@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:39 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 16:03:57 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/10 11:29:26 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,18 @@ void	free_stack_mem(t_stack *lst)
 	free(lst);
 }
 
-void	create_link_nodes(t_stack **head, int *dig_arr, size_t n_nbs, size_t i)
+void	create_link_nodes(t_stack **head, int *dig_ar, size_t n_nbs, size_t i)
 {
 	t_stack	*node;
 	size_t	index;
 
-	index = indexer(dig_arr[i], n_nbs, dig_arr);
-	node = ft_pslstnew(dig_arr[i], index);
+	index = indexer(dig_ar[i], n_nbs, dig_ar);
+	node = ft_pslstnew(dig_ar[i], index);
 	if (!node)
 	{
-			free_stack_mem(*head);
-			free(dig_arr);
-			return ;
+		free_stack_mem(*head);
+		free(dig_ar);
+		return ;
 	}
 	ft_pslstadd_back(head, node);
 }

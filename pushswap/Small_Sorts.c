@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:17 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/08 03:39:53 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/10 11:22:45 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	sort_two(t_stack **StackA)
 void	sort_three(t_stack **StackA)
 {
 	t_stack	**temp;
-	size_t		max;
-	size_t		max_pos;
+	size_t	max;
+	size_t	max_pos;
 
 	temp = StackA;
 	max = find_max_index(temp);

@@ -6,7 +6,7 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:42 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 16:02:42 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/10 11:22:28 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_stack	*ft_pslstnew(int number, size_t index)
 size_t	ft_pslstsize(t_stack *lst)
 {
 	size_t		i;
-	t_stack	*tmp;
+	t_stack		*tmp;
 
 	i = 0;
 	tmp = lst;
