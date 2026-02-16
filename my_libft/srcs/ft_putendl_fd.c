@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 08:36:06 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/16 10:09:55 by dlanehar         ###   ########.fr       */
+/*   Created: 2025/10/24 09:28:05 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/02/15 13:43:47 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/libft.h"
 
-void	push_a(t_stack **a, t_stack **b)
+ssize_t	ft_putendl_fd(char *s, int fd)
 {
-	t_stack	*temp;
+	ssize_t	written_chars;
 
-	if (!*b)
-		return ;
-	temp = (*b)->next;
-	ft_pslstadd_front(a, *b);
-	*b = temp;
-	write(1, "pa\n", 3);
-}
-
-void	push_b(t_stack **b, t_stack **a)
-{
-	t_stack	*temp;
-
-	if (!*a)
-		return ;
-	temp = (*a)->next;
-	ft_pslstadd_front(b, *a);
-	*a = temp;
-	write(1, "pb\n", 3);
+	written_chars = 0;
+	if (!s || fd < 0)
+		return (-1);
+	written_chars += ft_putstr_fd(s, fd);
+	written_chars += ft_putchar_fd('\n', fd);
+	return (written_chars);
 }

@@ -1,6 +1,6 @@
 PUSHSWAP_NAME    := push_swap
 CLT_NAME	:= client
-LIBFT := libft.a
+LIBFT := my_libft/libft.a
 
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g #-fsanitize=address
@@ -33,15 +33,15 @@ $(PUSHSWAP_NAME): $(PUSHSWAP_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	$(MAKE) bonus -C libft/42-Libft
+	$(MAKE) bonus -C my_libft
 
 clean:
-	$(MAKE) clean -C libft/42-Libft
+	$(MAKE) clean -C my_libft
 	rm -rf ./$(OBJ_DIR)
 
 fclean: clean
-	rm -f $(PUSHSWAP_NAME) $(CLT_NAME)
-	$(MAKE) fclean -C libft/42-Libft
+	rm -f $(PUSHSWAP_NAME)
+	$(MAKE) fclean -C my_libft
 
 re: fclean all
 

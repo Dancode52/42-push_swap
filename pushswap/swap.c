@@ -6,11 +6,11 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:36:20 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/01/26 08:56:24 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/16 10:10:06 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../headers/push_swap.h"
 
 static void	swap(t_stack **stack)
 {

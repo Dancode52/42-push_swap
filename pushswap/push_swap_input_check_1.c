@@ -6,13 +6,11 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/06 15:53:01 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/16 10:06:24 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/Headers/libft.h"
-#include <stdlib.h>
-#include "push_swap.h"
+#include "../headers/push_swap.h"
 
 static int	only_digits(char **split_input, int i, int j)
 {

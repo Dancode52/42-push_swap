@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 08:36:06 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/16 10:09:55 by dlanehar         ###   ########.fr       */
+/*   Created: 2025/10/31 14:45:22 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/02/15 13:43:47 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/libft.h"
 
-void	push_a(t_stack **a, t_stack **b)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_stack	*temp;
-
-	if (!*b)
+	if (!lst || !f)
 		return ;
-	temp = (*b)->next;
-	ft_pslstadd_front(a, *b);
-	*b = temp;
-	write(1, "pa\n", 3);
-}
-
-void	push_b(t_stack **b, t_stack **a)
-{
-	t_stack	*temp;
-
-	if (!*a)
-		return ;
-	temp = (*a)->next;
-	ft_pslstadd_front(b, *a);
-	*a = temp;
-	write(1, "pb\n", 3);
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

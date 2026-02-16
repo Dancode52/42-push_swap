@@ -6,13 +6,11 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:03 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/10 11:26:39 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/16 10:09:10 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/Headers/libft.h"
-#include <stdlib.h>
-#include "push_swap.h"
+#include "../headers/push_swap.h"
 
 char	*join_input(char **strings, int nb_of_strings)
 {

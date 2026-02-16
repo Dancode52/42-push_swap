@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   limit_atoi.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/07 08:45:04 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/16 10:09:30 by dlanehar         ###   ########.fr       */
+/*   Created: 2025/10/16 09:38:52 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/02/15 13:43:47 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/libft.h"
 
-int	ft_atoi_limit_check(const char *str, int *error)
+int	ft_atoi(const char *str)
 {
-	int		i;
-	long	nb;
-	int		sign;
+	int	i;
+	int	nb;
+	int	s;
 
 	i = 0;
 	nb = 0;
-	sign = 1;
-	if (str[i] == '-')
-		sign = sign * -1;
-	if (str[i] == '+' || str[i] == '-')
+	s = 1;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			s = s * -1;
+		i++;
+	}
+	if (!(str[i] >= '0' && str[i] <= '9'))
+		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if ((nb > INT_MAX && sign == 1) || (nb * sign < INT_MIN))
-			break ;
 		nb = nb * 10 + (str[i] - '0');
 		i++;
 	}
-	if ((nb > INT_MAX && sign == 1) || (nb * sign < INT_MIN))
-	{
-		nb = 0;
-		*error = -2;
-	}
-	return (nb * sign);
+	return (nb * s);
 }

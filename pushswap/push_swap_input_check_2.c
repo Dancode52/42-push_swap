@@ -6,11 +6,11 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 15:35:25 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/10 11:39:16 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/16 10:08:37 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../headers/push_swap.h"
 
 char	*spaceoremptychecker(char *input, char *tofree)
 {
@@ -28,7 +28,7 @@ char	*spaceoremptychecker(char *input, char *tofree)
 	}
 	while (input[i])
 	{
-		if (input[i] == ' ' || input[i] >= 9 && input[i] <= 13)
+		if (input[i] == ' ' || (input[i] >= 9 && input[i] <= 13))
 			count++;
 		i++;
 	}

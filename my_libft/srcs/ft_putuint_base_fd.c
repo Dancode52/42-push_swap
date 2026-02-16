@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_putuint_base_fd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 08:36:06 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/16 10:09:55 by dlanehar         ###   ########.fr       */
+/*   Created: 2026/02/15 12:32:39 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/02/15 13:43:47 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/libft.h"
 
-void	push_a(t_stack **a, t_stack **b)
+ssize_t	ft_putuint_base_fd(size_t n, char *base, int fd)
 {
-	t_stack	*temp;
+	size_t	len;
+	ssize_t	i;
 
-	if (!*b)
-		return ;
-	temp = (*b)->next;
-	ft_pslstadd_front(a, *b);
-	*b = temp;
-	write(1, "pa\n", 3);
-}
-
-void	push_b(t_stack **b, t_stack **a)
-{
-	t_stack	*temp;
-
-	if (!*a)
-		return ;
-	temp = (*a)->next;
-	ft_pslstadd_front(b, *a);
-	*a = temp;
-	write(1, "pb\n", 3);
+	if (!base)
+		return (-1);
+	i = 0;
+	len = ft_strlen(base);
+	if (n >= len)
+	{
+		i += ft_putuint_base_fd(n / len, base, fd);
+		i += ft_putuint_base_fd(n % len, base, fd);
+	}
+	else
+		i += ft_putchar_fd(base[n], fd);
+	return (i);
 }

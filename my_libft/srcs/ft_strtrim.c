@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 08:36:06 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/16 10:09:55 by dlanehar         ###   ########.fr       */
+/*   Created: 2025/10/21 11:19:03 by dlanehar          #+#    #+#             */
+/*   Updated: 2026/02/15 13:43:47 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/libft.h"
 
-void	push_a(t_stack **a, t_stack **b)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	t_stack	*temp;
+	char	*ptr;
+	size_t	start;
+	size_t	end;
 
-	if (!*b)
-		return ;
-	temp = (*b)->next;
-	ft_pslstadd_front(a, *b);
-	*b = temp;
-	write(1, "pa\n", 3);
-}
-
-void	push_b(t_stack **b, t_stack **a)
-{
-	t_stack	*temp;
-
-	if (!*a)
-		return ;
-	temp = (*a)->next;
-	ft_pslstadd_front(b, *a);
-	*a = temp;
-	write(1, "pb\n", 3);
+	if (!s1)
+		return (NULL);
+	if (!set)
+		return ((char *) s1);
+	start = 0;
+	while (ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1) - 1;
+	while (ft_strrchr(set, s1[end]))
+		end--;
+	ptr = ft_substr(s1, start, (end - start + 1));
+	if (!ptr)
+		return (NULL);
+	return (ptr);
 }

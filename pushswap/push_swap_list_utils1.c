@@ -6,11 +6,11 @@
 /*   By: dlanehar <dlanehar@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 08:35:39 by dlanehar          #+#    #+#             */
-/*   Updated: 2026/02/10 11:29:26 by dlanehar         ###   ########.fr       */
+/*   Updated: 2026/02/16 10:09:39 by dlanehar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../headers/push_swap.h"
 
 void	ft_pslstadd_back(t_stack **lst, t_stack *new)
 {
